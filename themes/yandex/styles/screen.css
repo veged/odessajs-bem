@@ -1,23 +1,23 @@
 /*
-	Yandex theme for Shower HTML presentation engine: github.com/pepelsbey/shower
+    Yandex theme for Shower HTML presentation engine: github.com/pepelsbey/shower
 */
 
 @import url("../../bright/styles/screen.css");
 @import url("fonts.css");
 
 body {
-	font:25px/2 Textbook, Arial;
-	}
+    font:25px/2 Textbook, Arial;
+    }
 
 /* Slide
 ------------------------------- */
 .slide {
-	/*padding:71px 120px 0;*/
-	/*width:784px;*/
-	/*height:569px;*/
-	background: #FFF;
-	color:#000;
-	}
+    /*padding:71px 120px 0;*/
+    /*width:784px;*/
+    /*height:569px;*/
+    background: #FFF;
+    color:#000;
+    }
 
 .slide#splash h2 span,
 .slide#cover > div::before,
@@ -25,26 +25,26 @@ body {
 .slide#cover > div::after,
 .slide#thanks > div::after
 {
-	font-family: 'YandexRu';
-	font-weight: normal;
+    font-family: 'YandexRu';
+    font-weight: normal;
 }
 
 .slide#cover > div::before,
 .slide#thanks > div::before
 {
-	content: 'Я';
-	color: #F00;
+    content: 'Я';
+    color: #F00;
 }
 .slide#cover > div::after,
 .slide#thanks > div::after
 {
-	content: 'ндекс';
-	margin-left: .45em;
+    content: 'ндекс';
+    margin-left: .45em;
 }
 
 .slide#splash h2::first-letter
 {
-	color: red;
+    color: red;
 }
 
 .slide#thanks,
@@ -58,12 +58,12 @@ body {
 .slide#cover > div::after,
 .slide#thanks > div::after
 {
-	font-size: 10vmin;
-	line-height: 100%;
+    font-size: 10vmin;
+    line-height: 100%;
 
-	position: absolute;
-	left: 55px;
-	top: 35px;
+    position: absolute;
+    left: 55px;
+    top: 35px;
 }
 
 .slide#cover > div::before,
@@ -71,7 +71,7 @@ body {
 .slide#cover > div::after,
 .slide#thanks > div::after
 {
-	display: block;
+    display: block;
 }
 
 .slide#thanks h2,
@@ -117,96 +117,96 @@ body {
     }
 .slide#splash h2
 {
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 
-	text-align: center;
+    text-align: center;
 }
 
 .slide#splash h2:after
 {
-	display: inline-block;
+    display: inline-block;
 
-	height: 100%;
+    height: 100%;
 
-	vertical-align: middle;
+    vertical-align: middle;
 
-	content: '';
+    content: '';
 }
 
 .slide#splash h2 > span
 {
-	font-size: 30vmin;
-	line-height: 100%;
+    font-size: 30vmin;
+    line-height: 100%;
 
-	vertical-align: middle;
+    vertical-align: middle;
 }
 
 /* Header */
 .slide h2 {
-	margin:0 0 37px;
-	font: bold 50px/50px Textbook, Arial;
+    margin:0 0 37px;
+    font: bold 50px/50px Textbook, Arial;
 }
 
 /* Text */
 .slide p {
-	margin:0 0 30px;
-	}
+    margin:0 0 30px;
+    }
 .slide p.note {
-	color:#999;
-	}
+    color:#999;
+    }
 .slide a {
-	border-bottom:0.1em solid;
-	color:#0174A7;
-	text-decoration:none;
-	}
+    border-bottom:0.1em solid;
+    color:#0174A7;
+    text-decoration:none;
+    }
 
 /* Quote */
 .slide blockquote {
-	font-style:italic;
-	}
-	.slide blockquote:before {
-		position:absolute;
-		margin:-16px 0 0 -80px;
-		color:#CCC;
-		font:200px/1 Textbook, Arial;
-		content:'\201C';
-		}
+    font-style:italic;
+    }
+    .slide blockquote:before {
+        position:absolute;
+        margin:-16px 0 0 -80px;
+        color:#CCC;
+        font:200px/1 Textbook, Arial;
+        content:'\201C';
+        }
 .slide blockquote + figcaption {
-	margin:-30px 0 40px;
-	font-style:italic;
-	font-weight:bold;
+    margin:-30px 0 40px;
+    font-style:italic;
+    font-weight:bold;
     text-align: right;
 }
 
 /* Lists */
 .slide ol,
 .slide ul {
-	margin:0 0 30px;
-	counter-reset:list;
-	}
-	.slide ul ul,
-	.slide ol ul,
-	.slide ol ol,
-	.slide ul ol {
-		margin:0 0 0 39px;
-		}
-	.slide ol li,
-	.slide ul li {
-		text-indent:-13px;
-		}
-	.slide ol > li:before,
-	.slide ul > li:before {
-		display:inline-block;
-		width:13px;
-		color:#F00;
-		}
-	.slide ul > li:before {
-		content:'\25CF\00A0\00A0';
-		}
+    margin:0 0 30px;
+    counter-reset:list;
+    }
+    .slide ul ul,
+    .slide ol ul,
+    .slide ol ol,
+    .slide ul ol {
+        margin:0 0 0 39px;
+        }
+    .slide ol li,
+    .slide ul li {
+        text-indent:-13px;
+        }
+    .slide ol > li:before,
+    .slide ul > li:before {
+        display:inline-block;
+        width:13px;
+        color:#F00;
+        }
+    .slide ul > li:before {
+        content:'\25CF\00A0\00A0';
+        }
 
     .slide ul ul > li:before,
     .slide ol ul > li:before
@@ -214,10 +214,10 @@ body {
         content:'– ';
     }
 
-	.slide ol > li:before {
-		counter-increment:list;
-		content:counter(list)'.\00A0';
-		}
+    .slide ol > li:before {
+        counter-increment:list;
+        content:counter(list)'.\00A0';
+        }
 
     .slide ol ol > li:before,
     .slide ol ul > li:before,
@@ -230,18 +230,18 @@ body {
 /* Double */
 .slide ol.double,
 .slide ul.double {
-	margin-left:-25px;
-	-webkit-columns:2;
-	-moz-columns:2;
-	columns:2;
-	-webkit-column-gap:0;
-	-moz-column-gap:0;
-	column-gap:0;
-	}
-	.slide ol.double li,
-	.slide ul.double li {
-		padding:0 30px 0 1em;
-		}
+    margin-left:-25px;
+    -webkit-columns:2;
+    -moz-columns:2;
+    columns:2;
+    -webkit-column-gap:0;
+    -moz-column-gap:0;
+    column-gap:0;
+    }
+    .slide ol.double li,
+    .slide ul.double li {
+        padding:0 30px 0 1em;
+        }
 
 .shout iframe,
 .cover iframe {
@@ -265,4 +265,17 @@ body {
 
 .full .progress div {
     background: #FFD700;
+    }
+
+.list .slide:target:before {
+    box-shadow: 0 0 10px 0 #FFD700,0 0 0 12px #FFD700;
+    }
+
+.caption a {
+    display: inline-block;
+    color: #000;
+    line-height: 1.1;
+    }
+.list .slide:target:after {
+    color: #000;
     }

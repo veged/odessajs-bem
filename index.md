@@ -8,7 +8,7 @@ title: Название презентации
 
 # <span>Яндекс</span> {#splash}
 
-## {{ page.title }} {#cover}
+## **{{ page.title }}** {#cover}
 
 <div class="info">
     <p class="author">{{ site.author.name }}</p>
