@@ -60,6 +60,40 @@ Lorem ipsum dolor sit amet, consectetur [adipisicing](#all-kind-of-lists) elit, 
         <link rel="stylesheet" href="screen.css">
     <mark></head></mark>
 
+## Code Samples HTML highlight
+
+{:.language-markup}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head> <!--Comment-->
+        <title>Shower</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="screen.css">
+    </head>
+
+## Code Samples JS highlight
+
+{:.language-javascript .line-numbers}
+    function log(data) {
+      var props = [];
+      for (var key in data) {
+        var value = encodeURIComponent(data[key]);
+        props.push(encodeURIComponent(key) + '=' + value);
+      }
+      new Image().src = '/log?' + props.join('&');
+    }
+
+## Code Samples CSS highlight
+
+{:.language-css}
+    /* Code blocks */
+    pre[class*="language-"] {
+    	padding: 1em;
+    	margin: .5em 0;
+    	overflow: auto;
+    	border-radius: 0.3em;
+    }
+
 ## Even Tables
 
 <!-- Need to add row `th` somehow -->
