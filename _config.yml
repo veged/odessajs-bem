@@ -3,17 +3,17 @@ markdown: kramdown
 pygments: true
 permalink: /:title.html
 
-default_theme: ribbon
+default_theme: yandex
 default_width: 792
-default_lang: en
+default_lang: ru
 default_body_class: list
 
 author:
     name: Yours Truly
     # url:  http://example.com/
     company:
-        name: Famous Inc.
-        # url:  http://example.com/
+        name: Яндекс
+        url:  http://yandex.ru/
 
 fork_url: https://github.com/shower/shower
 progress: true
