@@ -2,6 +2,7 @@ safe: true
 markdown: kramdown
 highlighter: true
 permalink: /:title.html
+exclude: [ assets ]
 
 default_theme: yandex
 default_width: 792
