@@ -186,10 +186,27 @@ body {
   vertical-align: middle;
 }
 
+.slide > div {
+  padding-top: 80px;
+  padding-left: 60px;
+}
+
+/* Section */
+.slide.section {
+  background: rgb(254,195,0);
+}
+
 /* Header */
 .slide h2 {
   margin:0 0 37px;
-  font: bold 50px/50px Textbook, Arial;
+  font: bold 40px Textbook, Arial;
+}
+
+.slide.section h3 {
+  margin-top: 220px;
+
+  font-size: 90px;
+  line-height: 0;
 }
 
 /* Text */
