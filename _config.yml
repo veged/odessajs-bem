@@ -10,8 +10,8 @@ default_lang: ru
 default_body_class: list
 
 author:
-    name: Yours Truly
-    # url:  http://example.com/
+    name: Автор
+    position: Должность
     company:
         name: Яндекс
         url:  http://yandex.ru/
