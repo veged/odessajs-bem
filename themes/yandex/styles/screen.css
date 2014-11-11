@@ -42,15 +42,16 @@ body {
     margin-left: .45em;
 }
 
+.slide#cover .author,
+.slide#thanks .author
+{
+    font-size: 20px;
+    line-height: 30px;
+}
+
 .slide#splash h2::first-letter
 {
     color: red;
-}
-
-.slide#thanks,
-.slide#cover
-{
-    background: #fff url("../images/ribbon.svg") 0 0 no-repeat;
 }
 
 .slide#cover > div::before,
@@ -104,6 +105,17 @@ body {
     border-left-color: transparent;
 }
 
+.slide#cover .nda {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+
+    height: 50px;
+    width: 60px;
+
+    background: url("../images/nda.svg") no-repeat;
+}
+
 .slide#thanks h2,
 .slide#cover h2 {
     font-size: 90px;
@@ -129,8 +141,8 @@ body {
 .slide#cover .info
 {
     position: absolute;
-    bottom: 50px;
-    left: 290px;
+    bottom: 40px;
+    left: 60px;
     width: 450px;
     font-size: 75%;
 }

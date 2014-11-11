@@ -9,11 +9,11 @@ title: Название презентации
 # <span>Яндекс</span> {#splash}
 
 ## **{{ page.title }}** {#cover}
-<p class="service">Сервис</p>
+<div class="service">Сервис</div>
+<div class="nda"></div>
 
 <div class="info">
-    <p class="author">{{ site.author.name }}</p>
-    <p class="author">2013</p>
+    <p class="author">{{ site.author.name }}, <br/> {{ site.author.position }}</p>
 </div>
 
 ## Shower Key Features
@@ -131,5 +131,4 @@ It’s good to have information organized.
 
 <div class="info">
     <p class="author">{{ site.author.name }}</p>
-    <p class="author">2013</p>
 </div>
