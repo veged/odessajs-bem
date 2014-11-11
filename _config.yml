@@ -1,6 +1,6 @@
 safe: true
 markdown: kramdown
-pygments: true
+highlighter: true
 permalink: /:title.html
 
 default_theme: yandex
