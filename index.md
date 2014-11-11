@@ -13,7 +13,7 @@ title: Название презентации
 <div class="nda"></div>
 
 <div class="info">
-    <p class="author">{{ site.author.name }}, <br/> {{ site.author.position }}</p>
+  <p class="author">{{ site.author.name }}, <br/> {{ site.author.position }}</p>
 </div>
 
 ## Shower Key Features
@@ -37,9 +37,9 @@ Lorem ipsum dolor sit amet, consectetur [adipisicing](#all-kind-of-lists) elit, 
 1. Simple lists are marked with bullets
 2. Ordered lists begin with a number
 3. You can even nest lists one inside another
-    - Or mix their types
-    - But do not go too far
-    - Otherwise audience will be bored
+  - Or mix their types
+  - But do not go too far
+  - Otherwise audience will be bored
 4. Look, seven rows exactly!
 
 ## Serious Citations
@@ -53,47 +53,47 @@ Lorem ipsum dolor sit amet, consectetur [adipisicing](#all-kind-of-lists) elit, 
 
 ## Code Samples
 
-    <!DOCTYPE html>
-    <html lang="en">
-    <mark><head></mark> <mark class="comment"><!--Comment--></mark>
-        <title>Shower</title>
-        <meta charset="<mark class="important">UTF-8</mark>">
-        <link rel="stylesheet" href="screen.css">
-    <mark></head></mark>
+  <!DOCTYPE html>
+  <html lang="en">
+  <mark><head></mark> <mark class="comment"><!--Comment--></mark>
+    <title>Shower</title>
+    <meta charset="<mark class="important">UTF-8</mark>">
+    <link rel="stylesheet" href="screen.css">
+  <mark></head></mark>
 
 ## Code Samples HTML highlight
 
 {:.language-markup}
-    <!DOCTYPE html>
-    <html lang="en">
-    <head> <!--Comment-->
-        <title>Shower</title>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="screen.css">
-    </head>
+  <!DOCTYPE html>
+  <html lang="en">
+  <head> <!--Comment-->
+    <title>Shower</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="screen.css">
+  </head>
 
 ## Code Samples JS highlight
 
 {:.language-javascript .line-numbers}
-    function log(data) {
-      var props = [];
-      for (var key in data) {
-        var value = encodeURIComponent(data[key]);
-        props.push(encodeURIComponent(key) + '=' + value);
-      }
-      new Image().src = '/log?' + props.join('&');
+  function log(data) {
+    var props = [];
+    for (var key in data) {
+    var value = encodeURIComponent(data[key]);
+    props.push(encodeURIComponent(key) + '=' + value);
     }
+    new Image().src = '/log?' + props.join('&');
+  }
 
 ## Code Samples CSS highlight
 
 {:.language-css}
-    /* Code blocks */
-    pre[class*="language-"] {
-    	padding: 1em;
-    	margin: .5em 0;
-    	overflow: auto;
-    	border-radius: 0.3em;
-    }
+  /* Code blocks */
+  pre[class*="language-"] {
+    padding: 1em;
+    margin: .5em 0;
+    overflow: auto;
+    border-radius: 0.3em;
+  }
 
 ## Even Tables
 
@@ -130,5 +130,5 @@ It’s good to have information organized.
 ## **Спасибо!** {#thanks}
 
 <div class="info">
-    <p class="author">{{ site.author.name }}</p>
+  <p class="author">{{ site.author.name }}</p>
 </div>
