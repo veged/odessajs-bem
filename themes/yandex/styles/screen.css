@@ -13,6 +13,10 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: lighter;
 }
 
+.right {
+  float: right;
+}
+
 /* Slide
 ------------------------------- */
 .slide {
@@ -230,6 +234,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .slide.introductory h3 {
+  float: left;
   margin-top: 100px;
 
   line-height: 1;
@@ -305,12 +310,6 @@ h1, h2, h3, h4, h5, h6 {
 
   counter-reset:list;
 }
-.slide ul ul,
-.slide ol ul,
-.slide ol ol,
-.slide ul ol {
-  margin:0 0 0 39px;
-}
 .slide ol li,
 .slide ul li {
   margin-top: 20px;
@@ -326,6 +325,11 @@ h1, h2, h3, h4, h5, h6 {
   width:13px;
 
   color:black;
+}
+
+.slide > div > ul,
+.slide > div > ol {
+  float: left;
 }
 
 .slide > div > ul > li:lang(ru):before {

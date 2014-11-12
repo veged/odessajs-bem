@@ -39,15 +39,13 @@ title: Название темы
 {:.introductory}
 
 ### Вводный текст (первый уровень текста)
-
+![placeholder](pictures/vertical-placeholder.png){:.right}
 
 *  Второй уровень текста
 	* Третий уровень текста (буллиты)
 	* Третий уровень текста (буллиты)
 
 	1. Четвертый уровень текста
-
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
 
 ## Plain Text on Your Slides
 
