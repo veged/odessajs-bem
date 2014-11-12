@@ -2,7 +2,7 @@
 
 layout: default
 
-title: Название презентации
+title: Название темы
 
 ---
 

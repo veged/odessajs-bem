@@ -9,17 +9,15 @@ body {
   font:25px/2 Textbook, Arial;
 }
 
-* {
-  line-height: 1 !important;
+h1, h2, h3, h4, h5, h6 {
+  font-weight: lighter;
 }
+
 
 /* Slide
 ------------------------------- */
 .slide {
   color:#000;
-  /*padding:71px 120px 0;*/
-  /*width:784px;*/
-  /*height:569px;*/
   background: #FFF;
 }
 
@@ -81,11 +79,15 @@ body {
   display: block;
 }
 
-.slide#cover .service
-{
+.slide#cover .service,
+.slide.section h2 {
   position: absolute;
   z-index: 100;
   top: 40px;
+  left: 60px;
+}
+
+.slide#cover .service {
   left: 150px;
 
   height: 36px;
@@ -94,8 +96,11 @@ body {
   border: 2px solid #FFDB4C;
   border-right: none;
 
-  font-family: "Textbook";
   font-size: 18px;
+}
+
+.slide.section h2 {
+  font-size: 30px;
 }
 
 .slide#cover .service:before {
@@ -129,23 +134,23 @@ body {
 }
 
 .slide#thanks h2,
-.slide#cover h2 {
+.slide#cover h2,
+.slide.section h3 {
   position:absolute;
   top: 50%;
+  left: 60px;
 
-  width: 550px;
+  width: 100%;
 
   -webkit-transform:translateY(-50%);
   -moz-transform:translateY(-50%);
   -ms-transform:translateY(-50%);
   -o-transform:translateY(-50%);
   transform:translateY(-50%);
-  text-align: left;
 
   color: #000;
 
-  font-size: 90px;
-  line-height: 1;
+  font-size: 70px;
 }
 
 .slide#thanks .info,
@@ -199,8 +204,8 @@ body {
 }
 
 .slide > div {
-  padding-top: 80px;
-  padding-left: 60px;
+  padding-top: 40px;
+  padding-left: 50px;
 }
 
 /* Section */
@@ -211,12 +216,12 @@ body {
 /* introductory */
 .slide.introductory > div {
   padding-top: 20px;
-  padding-left: 60px;
+  padding-left: 40px;
 }
 
 .slide.introductory h3 {
   margin-top: 140px;
-  margin-bottom: 10px;
+  line-height: 1;
 }
 
 .slide.introductory h3 {
@@ -225,16 +230,9 @@ body {
 
 /* Header */
 .slide h2 {
-  margin:0 0 37px;
+  margin: 0;
 
-  font: bold 40px Textbook, Arial;
-}
-
-.slide.section h3 {
-  margin-top: 220px;
-
-  font-size: 90px;
-  line-height: 0;
+  font: lighter 40px Textbook, Arial;
 }
 
 .slide h3, .slide h4 {
@@ -288,8 +286,9 @@ body {
 .slide ol li,
 .slide ul li {
   text-indent:-13px;
+  margin-top: 20px;
 
-  line-height: 2 !important;
+  font-weight: lighter;
 }
 .slide ol > li:before,
 .slide ul > li:before {
@@ -305,13 +304,17 @@ body {
 
   border-left: 5px solid rgb(254,195,0);
 
-  font-weight: normal;
   line-height: 25px;
 }
 
 .slide ul ul>li:lang(ru):before {
   content:'〉 ';
 
+  font-weight: normal;
+}
+
+.slide > div > ul > li {
+  line-height: 1;
   font-weight: normal;
 }
 
