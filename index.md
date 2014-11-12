@@ -21,6 +21,8 @@ title: Название темы
 
 ### Название раздела
 
+<div class="down-arrow"></div>
+
 ## Заголовок
 {:.introductory}
 
@@ -32,6 +34,20 @@ title: Название темы
 	* Третий уровень текста (буллиты)
 
 	1. Четвертый уровень текста
+
+## Заголовок
+{:.introductory}
+
+### Вводный текст (первый уровень текста)
+
+
+*  Второй уровень текста
+	* Третий уровень текста (буллиты)
+	* Третий уровень текста (буллиты)
+
+	1. Четвертый уровень текста
+
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
 
 ## Plain Text on Your Slides
 

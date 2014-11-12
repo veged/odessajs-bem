@@ -20,6 +20,10 @@ h1, h2, h3, h4, h5, h6 {
   background: #FFF;
 }
 
+.slide:after {
+  content: '';
+}
+
 .slide#splash h2 span,
 .slide#cover > div::before,
 .slide#thanks > div::before,
@@ -124,7 +128,7 @@ h1, h2, h3, h4, h5, h6 {
 .slide#cover .nda {
   position: absolute;
   top: 30px;
-  right: 40px;
+  right: 60px;
 
   width: 60px;
   height: 50px;
@@ -203,7 +207,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .slide > div {
+  width: 924px;
+  height: 592px;
   padding-top: 40px;
+  padding-right: 50px;
   padding-left: 50px;
 }
 
@@ -224,11 +231,29 @@ h1, h2, h3, h4, h5, h6 {
 
 .slide.introductory h3 {
   margin-top: 100px;
+
   line-height: 1;
 }
 
 .slide.introductory h3 {
   font-size: 30px;
+}
+
+.down-arrow {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+
+  height: 27px;
+  width: 80px;
+
+  background: url("../images/down-arrow.svg") no-repeat;
+
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
 }
 
 /* Header */
@@ -288,8 +313,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 .slide ol li,
 .slide ul li {
-  text-indent:-13px;
   margin-top: 20px;
+
+  text-indent:-13px;
 
   font-weight: lighter;
 }
@@ -317,8 +343,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .slide > div > ul > li {
-  line-height: 1;
   font-weight: normal;
+  line-height: 1;
 }
 
   .slide ol > li:before {
