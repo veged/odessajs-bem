@@ -21,31 +21,22 @@ title: Название презентации
 
 ### Название раздела
 
-## Shower Key Features
+## Заголовок
+{:.introductory}
 
-1. Built on HTML, CSS and vanilla JavaScript
-2. All modern browsers are supported
-3. Slide themes are separated from engine
-4. Fully keyboard accessible
-5. Printable to PDF
+### Вводный текст (первый уровень текста)
 
-{:.note}
-Shower ['ʃəuə] noun. A person or thing that shows.
 
+*  Второй уровень текста
+	* Третий уровень текста (буллиты)
+	* Третий уровень текста (буллиты)
+
+	1. Четвертый уровень текста
 
 ## Plain Text on Your Slides
 
 Lorem ipsum dolor sit amet, consectetur [adipisicing](#all-kind-of-lists) elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, *quis nostrud* exercitation ullamco laboris **nisi ut aliquip** ex ea commodo consequat. Duis aute irure <i>dolor</i> in reprehenderit in voluptate velit esse cillum <b>dolore</b> eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in `<culpa>` qui officia deserunt mollit anim id est laborum.
 
-## All Kind of Lists
-
-1. Simple lists are marked with bullets
-2. Ordered lists begin with a number
-3. You can even nest lists one inside another
-	- Or mix their types
-	- But do not go too far
-	- Otherwise audience will be bored
-4. Look, seven rows exactly!
 
 ## Serious Citations
 
