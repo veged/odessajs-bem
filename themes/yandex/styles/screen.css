@@ -330,6 +330,7 @@ h1, h2, h3, h4, h5, h6 {
 .slide > div > ul,
 .slide > div > ol {
   float: left;
+  clear: left;
 }
 
 .slide > div > ul > li:lang(ru):before {
