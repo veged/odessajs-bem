@@ -236,6 +236,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .slide h3 {
   float: left;
+
   margin-top: 100px;
 
   line-height: 1;
@@ -250,16 +251,16 @@ h1, h2, h3, h4, h5, h6 {
   bottom: 20px;
   left: 50%;
 
-  height: 27px;
   width: 80px;
-
-  background: url("../images/down-arrow.svg") no-repeat;
+  height: 27px;
 
   -webkit-transform: translateX(-50%);
   -moz-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
   -o-transform: translateX(-50%);
   transform: translateX(-50%);
+
+  background: url("../images/down-arrow.svg") no-repeat;
 }
 
 /* Header */
@@ -306,10 +307,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .slide.with-big-quote blockquote {
+  left: auto;
+
   margin: 0;
   padding-left: 25px;
 
-  left: auto;
   line-height: 1;
 }
 
