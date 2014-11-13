@@ -24,7 +24,6 @@ title: Название темы
 <div class="down-arrow"></div>
 
 ## Заголовок
-{:.introductory}
 
 ### Вводный текст (первый уровень текста)
 
@@ -36,7 +35,6 @@ title: Название темы
 	1. Четвертый уровень текста
 
 ## Заголовок
-{:.introductory}
 
 ### Вводный текст (первый уровень текста)
 ![placeholder](pictures/vertical-placeholder.png){:.right}
