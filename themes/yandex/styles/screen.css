@@ -162,15 +162,6 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 70px;
 }
 
-.slide.with-big-quote blockquote {
-  left: auto;
-  line-height: 1;
-}
-
-.slide.with-big-quote blockquote p {
-  margin: 0;
-}
-
 .slide#thanks .info,
 .slide#cover .info
 {
@@ -313,6 +304,19 @@ h1, h2, h3, h4, h5, h6 {
 
   font-style: inherit;
 }
+
+.slide.with-big-quote blockquote {
+  margin: 0;
+  padding-left: 25px;
+
+  left: auto;
+  line-height: 1;
+}
+
+.slide.with-big-quote blockquote p {
+  margin: 0;
+}
+
 
 /* Lists */
 .slide ol,
