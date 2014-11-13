@@ -20,11 +20,9 @@ That's all — after doing so you could go at your generated pages — replace t
 
 If you'd like to preview the changes or compile it locally, so you'd have static HTML of your slides (and you could access them without an internet access), you should clone this repo (or a fork) locally:
 
-    git clone --recursive git://github.com/shower/jekyller.git
-    
-Note that you'll need either to use the `--recursive` flag, 'cause there are submodules to fetch, or you'll need to use `git submodule init && git submodule update` in order to fetch them manually if you didn't use this flag.
+    git clone git://github.com/shower/jekyller.git
 
-After cloning all you'll need to do is to run Jekyll in the cloned folder. On how to install and run Jekyll [read it's readme](https://github.com/mojombo/jekyll#getting-started).
+After cloning all you'll need to do is to run `bower install command` and Jekyll in the cloned folder. On how to install and run Jekyll [read it's readme](https://github.com/mojombo/jekyll#getting-started).
 
 ## Use
 
@@ -171,7 +169,7 @@ Just add any of them to the header and they would propagate to the slide. Like t
 {:.cover #Picture}
 ```
 
-or 
+or
 
 ``` md
 {:.shout data-timing="00:03"}

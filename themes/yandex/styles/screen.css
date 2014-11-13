@@ -2,15 +2,11 @@
   Yandex theme for Shower HTML presentation engine: github.com/pepelsbey/shower
 */
 
-@import url("../../bright/styles/screen.css");
+@import url("../../../bower_components/shower-bright/styles/screen.css");
 @import url("fonts.css");
 
 body {
   font:25px/2 Textbook, Arial;
-  font-weight: lighter;
-}
-
-h1, h2, h3, h4, h5, h6 {
   font-weight: lighter;
 }
 

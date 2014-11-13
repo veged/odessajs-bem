@@ -1,9 +1,0 @@
-[submodule "themes/ribbon"]
-	path = themes/ribbon
-	url = https://github.com/shower/ribbon.git
-[submodule "themes/bright"]
-	path = themes/bright
-	url = https://github.com/shower/bright.git
-[submodule "shower"]
-	path = shower
-	url = https://github.com/shower/shower.git
