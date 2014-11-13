@@ -315,6 +315,21 @@ body {
   margin: 0;
 }
 
+/* Code */
+.slide code[class*="language-"],
+.slide pre[class*="language-"] {
+  font-family: 'InputMono';
+}
+
+.slide pre[class*="language-"] {
+  border: none;
+  border-radius: inherit;
+  box-shadow: none;
+  margin: .5em 0;
+  overflow: auto;
+  padding: 1em;
+}
+
 
 /* Lists */
 .slide ol,

@@ -56,6 +56,7 @@ title: Название темы
 
 ## Code Samples
 
+{% highlight html linenos %}
 	<!DOCTYPE html>
 	<html lang="en">
 	<mark><head></mark> <mark class="comment"><!--Comment--></mark>
@@ -63,21 +64,11 @@ title: Название темы
 		<meta charset="<mark class="important">UTF-8</mark>">
 		<link rel="stylesheet" href="screen.css">
 	<mark></head></mark>
-
-## Code Samples HTML highlight
-
-{:.language-markup}
-	<!DOCTYPE html>
-	<html lang="en">
-	<head> <!--Comment-->
-		<title>Shower</title>
-		<meta charset="UTF-8">
-		<link rel="stylesheet" href="screen.css">
-	</head>
+{% endhighlight %}
 
 ## Code Samples JS highlight
 
-{:.language-javascript .line-numbers}
+{% highlight javascript linenos %}
 	function log(data) {
 	  var props = [];
 	  for (var key in data) {
@@ -86,10 +77,11 @@ title: Название темы
 	  }
 	  new Image().src = '/log?' + props.join('&');
 	}
+{% endhighlight %}
 
 ## Code Samples CSS highlight
 
-{:.language-css}
+{% highlight css %}
 	/* Code blocks */
 	pre[class*="language-"] {
 		padding: 1em;
@@ -97,6 +89,7 @@ title: Название темы
 		overflow: auto;
 		border-radius: 0.3em;
 	}
+{% endhighlight %}
 
 ## Even Tables
 
