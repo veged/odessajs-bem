@@ -7,6 +7,7 @@
 
 body {
   font:25px/2 Textbook, Arial;
+  font-weight: lighter;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -142,7 +143,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .slide#thanks h2,
 .slide#cover h2,
-.slide.section h3 {
+.slide.section h3,
+.slide.with-big-quote blockquote {
   position:absolute;
   top: 50%;
   left: 60px;
@@ -158,6 +160,14 @@ h1, h2, h3, h4, h5, h6 {
   color: #000;
 
   font-size: 70px;
+}
+
+.slide.with-big-quote blockquote {
+  line-height: 1;
+}
+
+.slide.with-big-quote blockquote p {
+  margin: 0;
 }
 
 .slide#thanks .info,
@@ -277,7 +287,8 @@ h1, h2, h3, h4, h5, h6 {
   margin:0 0 30px;
 }
 .slide p.note {
-  color:#999;
+  position: absolute;
+  bottom: 60px;
 }
 .slide a {
   text-decoration:none;
