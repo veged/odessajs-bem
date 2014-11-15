@@ -24,7 +24,7 @@ body
     background: #fff;
 }
 
-.slide:after
+.full .slide:after
 {
     content: '';
 }
