@@ -211,6 +211,12 @@ title: Название темы
 ![](pictures/horizontal-middle-placeholder.png)
 *Текст*
 
+## Заголовок
+{:.images}
+
+![](pictures/horizontal-big-placeholder.png)
+{:.center}
+
 ## Pictures
 {:.cover #Picture}
 
