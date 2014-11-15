@@ -222,6 +222,14 @@ title: Название темы
 
 ![](pictures/horizontal-cover-placeholder.jpg)
 
+## Последовательный список
+
+1. First
+2. …Second
+3. …Third
+4. …Fourth
+5. …Fifth
+
 ## Even Tables
 
 <!-- Need to add row `th` somehow -->
@@ -234,16 +242,6 @@ title: Название темы
 |* Terry        *| Richardson  | Swag      | Blog      |
 
 It’s good to have information organized.
-
-## **You can even shout this way**
-
-## Inner Navigation
-
-1. Lets you reveal list items one by one
-2. …To keep some key points
-3. …In secret from audience
-4. …But it will work only once
-5. …Nobody wants to see the same joke twice
 
 ## ![](http://shwr.me/pictures/logo.svg) [See more on GitHub](https://github.com/shower/shower/)
 {:.shout #SeeMore}
