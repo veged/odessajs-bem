@@ -190,6 +190,18 @@ title: Название темы
 	}
 {% endhighlight %}
 
+## Заголовок
+{:.images}
+
+![](pictures/horizontal-placeholder.png)
+*Текст*
+
+![](pictures/horizontal-placeholder.png)
+*Текст*
+
+![](pictures/horizontal-placeholder.png)
+*Текст*
+
 ## Even Tables
 
 <!-- Need to add row `th` somehow -->
