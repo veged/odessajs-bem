@@ -54,18 +54,6 @@ title: Название темы
 {:.note}
 
 
-## Code Samples
-
-{% highlight html linenos %}
-	<!DOCTYPE html>
-	<html lang="en">
-	<mark><head></mark> <mark class="comment"><!--Comment--></mark>
-		<title>Shower</title>
-		<meta charset="<mark class="important">UTF-8</mark>">
-		<link rel="stylesheet" href="screen.css">
-	<mark></head></mark>
-{% endhighlight %}
-
 ## Code Samples JS highlight
 
 {% highlight javascript linenos %}
