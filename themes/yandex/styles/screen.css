@@ -326,6 +326,7 @@ body {
 .slide pre[class*="language-"] {
   font-size: 21px;
   font-family: 'InputMono';
+  line-height: 1.2;
 }
 
 .slide pre[class*="language-"] {
