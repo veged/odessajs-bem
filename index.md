@@ -211,6 +211,11 @@ title: Название темы
 ![](pictures/horizontal-middle-placeholder.png)
 *Текст*
 
+## Pictures
+{:.cover #Picture}
+
+![](pictures/horizontal-cover-placeholder.png)
+
 ## Even Tables
 
 <!-- Need to add row `th` somehow -->
@@ -223,12 +228,6 @@ title: Название темы
 |* Terry        *| Richardson  | Swag      | Blog      |
 
 It’s good to have information organized.
-
-## Pictures
-{:.cover #Picture}
-
-![](pictures/picture.jpg)
-<!-- photo by John Carey, fiftyfootshadows.net -->
 
 ## **You can even shout this way**
 

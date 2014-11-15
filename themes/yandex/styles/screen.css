@@ -373,10 +373,26 @@ body
 
     margin-top: -20px;
 
-    -moz-transform: translateY(50%);
-     -ms-transform: translateY(50%);
-      -o-transform: translateY(50%);
+    -moz-transform: translateY(-50%);
+     -ms-transform: translateY(-50%);
+      -o-transform: translateY(-50%);
          transform: translateY(-50%);
+}
+
+.slide.images p.center
+{
+    position: relative;
+    top: 50%;
+    left: 50%;
+
+    margin-top: 20px;
+
+    display: inline-block;
+
+    -moz-transform: translateY(-50%) translateX(-50%);
+     -ms-transform: translateY(-50%) translateX(-50%);
+      -o-transform: translateY(-50%) translateX(-50%);
+         transform: translateY(-50%) translateX(-50%);
 }
 
 .slide.images p:after
