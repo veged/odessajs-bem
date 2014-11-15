@@ -367,16 +367,16 @@ body
 .slide.images p
 {
     position: relative;
+    top: 50%;
 
     display: inline-block;
 
     margin-top: -20px;
-    /* float: left; */
 
     -moz-transform: translateY(50%);
      -ms-transform: translateY(50%);
       -o-transform: translateY(50%);
-         transform: translateY(100%);
+         transform: translateY(-50%);
 }
 
 .slide.images p:after

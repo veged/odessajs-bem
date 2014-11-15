@@ -202,6 +202,15 @@ title: Название темы
 ![](pictures/horizontal-placeholder.png)
 *Текст*
 
+## Заголовок
+{:.images}
+
+![](pictures/horizontal-middle-placeholder.png)
+*Текст*
+
+![](pictures/horizontal-middle-placeholder.png)
+*Текст*
+
 ## Even Tables
 
 <!-- Need to add row `th` somehow -->
