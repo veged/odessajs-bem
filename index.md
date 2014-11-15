@@ -55,8 +55,8 @@ title: Название темы
 
 
 ## Code Samples JS highlight
+{% highlight javascript%}
 
-{% highlight javascript %}
 	!function() {
     var jar,
         rstoreNames = /[^\w]/g,
