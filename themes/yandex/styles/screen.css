@@ -385,9 +385,9 @@ body
     top: 50%;
     left: 50%;
 
-    margin-top: 20px;
-
     display: inline-block;
+
+    margin-top: 20px;
 
     -moz-transform: translateY(-50%) translateX(-50%);
      -ms-transform: translateY(-50%) translateX(-50%);

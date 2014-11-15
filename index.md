@@ -214,7 +214,7 @@ title: Название темы
 ## Pictures
 {:.cover #Picture}
 
-![](pictures/horizontal-cover-placeholder.png)
+![](pictures/horizontal-cover-placeholder.jpg)
 
 ## Even Tables
 
