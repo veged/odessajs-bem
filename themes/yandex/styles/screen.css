@@ -400,13 +400,6 @@ body
 }
 
 /* Code */
-.slide .highlight
-{
-    float: left;
-
-    width: 100%;
-}
-
 .slide code[class*='language-'],
 .slide pre[class*='language-']
 {
@@ -419,7 +412,7 @@ body
 {
     overflow: auto;
 
-    height: 490px;
+    max-height: 490px;
     margin: .5em 0;
     padding: 1em;
 
