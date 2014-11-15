@@ -69,14 +69,21 @@ title: Название темы
 ## Code Samples JS highlight
 
 {% highlight javascript linenos %}
-	function log(data) {
-	  var props = [];
-	  for (var key in data) {
-		var value = encodeURIComponent(data[key]);
-		props.push(encodeURIComponent(key) + '=' + value);
-	  }
-	  new Image().src = '/log?' + props.join('&');
-	}
+	var jar,
+    rstoreNames = /[^\w]/g,
+    storageInfo = window.storageInfo || window.webkitStorageInfo,
+    toString = "".toString;
+
+  jar = this.jar = function( name, storage ) {
+      return new jar.fn.init( name, storage );
+  };
+
+  jar.storages = [];
+  jar.instances = {};
+  jar.prefixes = {
+      storageInfo: storageInfo
+  };
+
 {% endhighlight %}
 
 ## Code Samples CSS highlight
