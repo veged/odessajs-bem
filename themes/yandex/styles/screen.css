@@ -144,6 +144,7 @@ body {
   position:absolute;
   top: 50%;
   left: 60px;
+  margin-top: 0;
 
   width: 100%;
 
@@ -316,8 +317,14 @@ body {
 }
 
 /* Code */
+.slide .highlight {
+  width: 100%;
+  float: left;
+}
+
 .slide code[class*="language-"],
 .slide pre[class*="language-"] {
+  font-size: 21px;
   font-family: 'InputMono';
 }
 
