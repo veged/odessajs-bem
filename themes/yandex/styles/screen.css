@@ -329,8 +329,10 @@ body {
 }
 
 .slide pre[class*="language-"] {
+  height: 490px;
+
   border: none;
-  border-radius: inherit;
+  border-radius: 0.1px;
   box-shadow: none;
   margin: .5em 0;
   overflow: auto;
