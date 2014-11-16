@@ -242,14 +242,16 @@ title: Название темы
 
 It’s good to have information organized.
 
-## **Спасибо!** {#contacts}
+## **Контакты** {#contacts}
 
 <div class="info">
 	<p class="author">{{ site.author.name }}</p>
-    <p>{{ site.author.position }}</p>
-    <p class="phone">+7 (000) 000-00-00</p>
-    <p class="twitter">@twitter</p>
-    <p class="mail">почта@yandex-team.ru</p>
-    <p class="facebook">facebook</p>
+    <p class="position">{{ site.author.position }}</p>
 
+    <div class="contacts">
+        <p class="phone">+7 (000) 000-00-00</p>
+        <p class="twitter">@twitter</p>
+        <p class="mail">почта@yandex-team.ru</p>
+        <p class="facebook">facebook</p>
+    </div>
 </div>

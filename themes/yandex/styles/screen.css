@@ -167,7 +167,7 @@ body
 
 .slide#cover .info
 {
-    font-size: 75%;
+    margin-top: 40px;
 
     position: absolute;
     bottom: 40px;
@@ -176,26 +176,83 @@ body
     width: 450px;
 }
 
+.slide#contacts .info {
+    margin-top: 40px;
+}
+
 .slide#contacts .info p,
 .slide#cover .info p
 {
     margin: 0;
 }
 
-.slide#contacts .info p {
-    font-size: 30px;
-}
-
 .slide#contacts h2
 {
     position: static;
 
-    margin-top: 100px;
+    margin-top: 60px;
 
     -moz-transform: translateY(0);
      -ms-transform: translateY(0);
       -o-transform: translateY(0);
          transform: translateY(0);
+}
+
+.slide#contacts .info p {
+    font-size: 30px;
+}
+
+.slide#contacts .info p {
+    font-size: 30px;
+    white-space: nowrap;
+}
+
+.slide#contacts .contacts {
+    margin-top: 60px;
+}
+
+.slide#contacts .contacts .phone {
+    position: absolute;
+    left: 40px;
+
+    padding-left: 40px;
+    line-height: 40px;
+
+    background: url('../images/phone.png') no-repeat;
+}
+
+.slide#contacts .contacts .twitter {
+    position: absolute;
+    right: 200px;
+
+    padding-left: 60px;
+    line-height: 40px;
+
+    background: url('../images/twitter.png') no-repeat;
+}
+
+.slide#contacts .contacts .mail {
+    position: absolute;
+    left: 40px;
+
+    margin-top: 100px;
+
+    padding-left: 60px;
+    line-height: 40px;
+
+    background: url('../images/mail.png') no-repeat;
+}
+
+.slide#contacts .contacts .facebook {
+    position: absolute;
+    right: 190px;
+
+    margin-top: 100px;
+
+    padding-left: 60px;
+    line-height: 40px;
+
+    background: url('../images/facebook.png') no-repeat;
 }
 
 .slide#splash
