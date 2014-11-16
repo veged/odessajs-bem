@@ -243,9 +243,6 @@ title: Название темы
 
 It’s good to have information organized.
 
-## ![](http://shwr.me/pictures/logo.svg) [See more on GitHub](https://github.com/shower/shower/)
-{:.shout #SeeMore}
-
 ## **Спасибо!** {#thanks}
 
 <div class="info">
