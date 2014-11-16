@@ -31,23 +31,19 @@ body
 
 .slide#splash h2 span,
 .slide#cover > div::before,
-.slide#thanks > div::before,
-.slide#cover > div::after,
-.slide#thanks > div::after
+.slide#cover > div::after
 {
     font-family: 'YandexRu';
     font-weight: normal;
 }
 
-.slide#cover > div::before,
-.slide#thanks > div::before
+.slide#cover > div::before
 {
     content: 'Я';
 
     color: #f00;
 }
-.slide#cover > div::after,
-.slide#thanks > div::after
+.slide#cover > div::after
 {
     margin-left: .45em;
 
@@ -55,7 +51,7 @@ body
 }
 
 .slide#cover .author,
-.slide#thanks .author
+.slide#contacts .author
 {
     font-size: 20px;
     line-height: 30px;
@@ -67,9 +63,9 @@ body
 }
 
 .slide#cover > div::before,
-.slide#thanks > div::before,
+.slide#contacts > div::before,
 .slide#cover > div::after,
-.slide#thanks > div::after
+.slide#contacts > div::after
 {
     font-size: 39px;
     line-height: 100%;
@@ -80,9 +76,9 @@ body
 }
 
 .slide#cover > div::before,
-.slide#thanks > div::before,
+.slide#contacts > div::before,
 .slide#cover > div::after,
-.slide#thanks > div::after
+.slide#contacts > div::after
 {
     display: block;
 }
@@ -146,7 +142,7 @@ body
     background: url('../images/nda.svg') no-repeat;
 }
 
-.slide#thanks h2,
+.slide#contacts h2,
 .slide#cover h2,
 .slide.section h3,
 .slide.with-big-quote blockquote
@@ -169,7 +165,6 @@ body
     color: #000;
 }
 
-.slide#thanks .info,
 .slide#cover .info
 {
     font-size: 75%;
@@ -181,10 +176,26 @@ body
     width: 450px;
 }
 
-.slide#thanks .info p,
+.slide#contacts .info p,
 .slide#cover .info p
 {
     margin: 0;
+}
+
+.slide#contacts .info p {
+    font-size: 30px;
+}
+
+.slide#contacts h2
+{
+    position: static;
+
+    margin-top: 100px;
+
+    -moz-transform: translateY(0);
+     -ms-transform: translateY(0);
+      -o-transform: translateY(0);
+         transform: translateY(0);
 }
 
 .slide#splash

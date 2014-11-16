@@ -45,6 +45,13 @@ title: Название темы
 
 	1. Четвертый уровень текста
 
+## Последовательный список
+
+1. First
+2. …Second
+3. …Third
+4. …Fourth
+5. …Fifth
 
 ## Заголовок
 {:.with-big-quote}
@@ -222,14 +229,6 @@ title: Название темы
 
 ![](pictures/horizontal-cover-placeholder.jpg)
 
-## Последовательный список
-
-1. First
-2. …Second
-3. …Third
-4. …Fourth
-5. …Fifth
-
 ## Even Tables
 
 <!-- Need to add row `th` somehow -->
@@ -243,8 +242,14 @@ title: Название темы
 
 It’s good to have information organized.
 
-## **Спасибо!** {#thanks}
+## **Спасибо!** {#contacts}
 
 <div class="info">
 	<p class="author">{{ site.author.name }}</p>
+    <p>{{ site.author.position }}</p>
+    <p class="phone">+7 (000) 000-00-00</p>
+    <p class="twitter">@twitter</p>
+    <p class="mail">почта@yandex-team.ru</p>
+    <p class="facebook">facebook</p>
+
 </div>
