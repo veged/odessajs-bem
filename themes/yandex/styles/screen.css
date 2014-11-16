@@ -167,16 +167,16 @@ body
 
 .slide#cover .info
 {
-    margin-top: 40px;
-
     position: absolute;
     bottom: 40px;
     left: 60px;
 
     width: 450px;
+    margin-top: 40px;
 }
 
-.slide#contacts .info {
+.slide#contacts .info
+{
     margin-top: 40px;
 }
 
@@ -198,59 +198,69 @@ body
          transform: translateY(0);
 }
 
-.slide#contacts .info p {
+.slide#contacts .info p
+{
     font-size: 30px;
 }
 
-.slide#contacts .info p {
+.slide#contacts .info p
+{
     font-size: 30px;
+
     white-space: nowrap;
 }
 
-.slide#contacts .contacts {
+.slide#contacts .contacts
+{
     margin-top: 60px;
 }
 
-.slide#contacts .contacts .phone {
+.slide#contacts .contacts .phone
+{
+    line-height: 40px;
+
     position: absolute;
     left: 40px;
 
     padding-left: 40px;
-    line-height: 40px;
 
     background: url('../images/phone.png') no-repeat;
 }
 
-.slide#contacts .contacts .twitter {
+.slide#contacts .contacts .twitter
+{
+    line-height: 40px;
+
     position: absolute;
     right: 200px;
 
     padding-left: 60px;
-    line-height: 40px;
 
     background: url('../images/twitter.png') no-repeat;
 }
 
-.slide#contacts .contacts .mail {
+.slide#contacts .contacts .mail
+{
+    line-height: 40px;
+
     position: absolute;
     left: 40px;
 
     margin-top: 100px;
-
     padding-left: 60px;
-    line-height: 40px;
 
     background: url('../images/mail.png') no-repeat;
 }
 
-.slide#contacts .contacts .facebook {
+.slide#contacts .contacts .facebook
+{
+    line-height: 40px;
+
     position: absolute;
     right: 190px;
 
     margin-top: 100px;
-
     padding-left: 60px;
-    line-height: 40px;
 
     background: url('../images/facebook.png') no-repeat;
 }
