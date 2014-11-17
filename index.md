@@ -53,7 +53,7 @@ title: Название темы
 4. …Fourth
 5. …Fifth
 
-## Заголовок
+## &nbsp;
 {:.with-big-quote}
 > Цитата
 

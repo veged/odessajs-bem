@@ -308,25 +308,6 @@ body.full .slide:after
     background: rgb(254,195,0);
 }
 
-.slide h2
-{
-    font-weight: normal;
-}
-
-.slide h3
-{
-    line-height: 1;
-
-    float: left;
-
-    margin-top: 100px;
-}
-
-.slide h3
-{
-    font-size: 30px;
-}
-
 .down-arrow
 {
     position: absolute;
@@ -350,13 +331,16 @@ body.full .slide:after
 {
     font: lighter 40px Textbook, Arial;
 
-    margin: 0;
+    margin: 0 0 60px;
 }
 
 .slide h3,
 .slide h4
 {
     font-size: 30px;
+    line-height: 1;
+
+    float: left;
 }
 
 /* Text */
