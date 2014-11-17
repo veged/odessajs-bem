@@ -53,12 +53,14 @@ title: Название темы
 4. …Fourth
 5. …Fifth
 
-## &nbsp;
+## Заголовок
 {:.with-big-quote}
 > Цитата
 
 Текст
 {:.note}
+
+## **Заголовок**
 
 
 ## Code Samples JS highlight
