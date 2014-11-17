@@ -7,9 +7,24 @@ body
     font-weight: lighter;
 }
 
+body.list
+{
+    background: #3878be;
+}
+
+.caption,
+.caption a
+{
+    color: white !important;
+}
+
 .right
 {
     float: right;
+
+    width: 360px;
+    /*TODO: перенести*/
+    margin-left: 40px;
 }
 
 /* Slide
@@ -20,12 +35,20 @@ body
     background: #fff;
 }
 
+.slide.cover:after,
+.slide.shout:after,
+.slide:after
+{
+    color: white;
+}
+
 .slide > div
 {
-    width: 924px;
+    width: 904px;
     height: 610px;
     padding-top: 20px;
-    padding-left: 40px;
+    padding-right: 60px;
+    padding-left: 60px;
 }
 
 body.full .slide:after
@@ -75,7 +98,7 @@ body.full .slide:after
     line-height: 100%;
 
     position: absolute;
-    top: 40px;
+    top: 60px;
     left: 60px;
 }
 
@@ -92,7 +115,7 @@ body.full .slide:after
 {
     position: absolute;
     z-index: 100;
-    top: 40px;
+    top: 60px;
     left: 60px;
 }
 
@@ -137,11 +160,11 @@ body.full .slide:after
 .slide#cover .nda
 {
     position: absolute;
-    top: 30px;
+    top: 40px;
     right: 60px;
 
     width: 60px;
-    height: 50px;
+    height: 80px;
 
     background: url('../images/nda.svg') no-repeat;
 }
@@ -152,6 +175,9 @@ body.full .slide:after
 .slide.with-big-quote blockquote
 {
     font-size: 70px;
+    text-align: left;
+
+    font-weight: lighter;
 
     position: absolute;
     top: 50%;
@@ -167,6 +193,10 @@ body.full .slide:after
             transform: translateY(-50%);
 
     color: #000;
+}
+
+.slide.with-big-quote blockquote {
+    border-width: 8px;
 }
 
 .slide#cover .info
@@ -190,9 +220,15 @@ body.full .slide:after
     margin: 0;
 }
 
+.slide#contacts > div {
+    padding-left: 80px;
+}
+
 .slide#contacts h2
 {
     position: static;
+
+    text-align: left;
 
     margin-top: 60px;
     padding: 0;
@@ -225,23 +261,11 @@ body.full .slide:after
     line-height: 40px;
 
     position: absolute;
-    left: 40px;
+    left: 80px;
 
     padding-left: 40px;
 
     background: url('../images/phone.png') no-repeat;
-}
-
-.slide#contacts .contacts .twitter
-{
-    line-height: 40px;
-
-    position: absolute;
-    right: 200px;
-
-    padding-left: 60px;
-
-    background: url('../images/twitter.png') no-repeat;
 }
 
 .slide#contacts .contacts .mail
@@ -249,7 +273,7 @@ body.full .slide:after
     line-height: 40px;
 
     position: absolute;
-    left: 40px;
+    left: 80px;
 
     margin-top: 100px;
     padding-left: 60px;
@@ -257,17 +281,40 @@ body.full .slide:after
     background: url('../images/mail.png') no-repeat;
 }
 
+.slide#contacts .contacts .twitter
+{
+    line-height: 40px;
+
+    position: absolute;
+    left: 650px;
+
+    padding-left: 60px;
+
+    background: url('../images/twitter.png') no-repeat;
+}
+
 .slide#contacts .contacts .facebook
 {
     line-height: 40px;
 
     position: absolute;
-    right: 190px;
+    left: 650px;
 
     margin-top: 100px;
     padding-left: 60px;
 
     background: url('../images/facebook.png') no-repeat;
+}
+
+.slide#contacts .contacts .vk
+{
+    line-height: 40px;
+
+    position: absolute;
+    left: 650px;
+
+    margin-top: 100px;
+    padding-left: 60px;
 }
 
 .slide#splash
@@ -309,6 +356,12 @@ body.full .slide:after
     background: rgb(254,195,0);
 }
 
+.slide.section h2
+{
+    font-size: 30px;
+    font-weight: lighter;
+}
+
 .down-arrow
 {
     position: absolute;
@@ -330,7 +383,7 @@ body.full .slide:after
 /* Header */
 .slide h2
 {
-    font: lighter 40px Textbook, Arial;
+    font: 50px Textbook, Arial;
 
     margin: 0 0 60px;
 }
@@ -353,7 +406,7 @@ body.full .slide:after
 {
     position: absolute;
     bottom: 0;
-    left: 80px;
+    left: 100px;
 
     color: black;
 }
@@ -434,20 +487,9 @@ body.full .slide:after
          transform: translateY(-50%);
 }
 
-.slide.images p.center
+.slide.center p
 {
-    position: relative;
-    top: 50%;
-    left: 50%;
-
-    display: inline-block;
-
-    margin-top: 20px;
-
-    -moz-transform: translateY(-50%) translateX(-50%);
-     -ms-transform: translateY(-50%) translateX(-50%);
-      -o-transform: translateY(-50%) translateX(-50%);
-         transform: translateY(-50%) translateX(-50%);
+    text-align: center;
 }
 
 .slide.images p:after
@@ -468,6 +510,40 @@ body.full .slide:after
     position: absolute;
     bottom: -66px;
     left: 0;
+}
+
+.slide.images.two p:first-of-type {
+    margin-left: 19px;
+}
+
+.slide.images.two p:last-of-type {
+    margin-right: 19px;
+}
+
+/* Tables */
+.slide table td,
+.slide table th {
+    padding-left: 15px;
+}
+
+.slide table thead,
+.slide table th {
+    font-weight: lighter;
+    background: rgb(254,195,0);
+}
+
+.slide table td {
+    background: -webkit-linear-gradient(bottom, black,black .055em, transparent .055em,transparent ) repeat-x;
+    background: -moz-linear-gradient(bottom, black,black .055em, transparent .055em,transparent ) repeat-x;
+    background: -ms-linear-gradient(bottom, black,black .055em, transparent .055em,transparent ) repeat-x;
+    background: linear-gradient(bottom, black,black .055em, transparent .055em,transparent ) repeat-x;
+}
+
+.slide table tbody:last-of-type,
+.slide table tbody:last-of-type tr,
+.slide table tbody:last-of-type td {
+    background: #535353;
+    color: white;
 }
 
 /* Code */
@@ -507,7 +583,7 @@ body.full .slide:after
 
     margin-top: 20px;
 
-    text-indent: -7px;
+    text-indent: -15px;
 }
 .slide ol > li:before,
 .slide ul > li:before
@@ -524,13 +600,14 @@ body.full .slide:after
 {
     float: left;
     clear: left;
+    font-size: 30px;
 }
 
 .slide > div > ul > li:lang(ru):before
 {
     line-height: 25px;
 
-    margin-left: -5px;
+    margin-left: 2px;
 
     content: '\0';
 
@@ -546,6 +623,7 @@ body.full .slide:after
 
 .slide > div > ul > li
 {
+    font-size: 30px;
     font-weight: normal;
     line-height: 1;
 }
@@ -590,11 +668,11 @@ body.full .slide:after
 .slide.shout h2
 {
     line-height: 1;
-
-    left: 40px;
+    left: 0;
+    right: 0;
+    text-align: center;
 
     margin: 0;
-    padding-left: 25px;
 
     color: black;
 }

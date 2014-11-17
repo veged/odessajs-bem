@@ -45,23 +45,12 @@ title: Название темы
 
 	1. Четвертый уровень текста
 
-## Последовательный список
-
-1. First
-2. …Second
-3. …Third
-4. …Fourth
-5. …Fifth
-
-## Заголовок
+## &nbsp;
 {:.with-big-quote}
 > Цитата
 
 Текст
 {:.note}
-
-## **Заголовок**
-
 
 ## Code Samples JS highlight
 {% highlight javascript%}
@@ -212,7 +201,7 @@ title: Название темы
 *Текст*
 
 ## Заголовок
-{:.images}
+{:.images .two}
 
 ![](pictures/horizontal-middle-placeholder.png)
 *Текст*
@@ -221,15 +210,14 @@ title: Название темы
 *Текст*
 
 ## Заголовок
-{:.images}
-
-![](pictures/horizontal-big-placeholder.png)
 {:.center}
 
-## Pictures
-{:.cover #Picture}
+![](pictures/horizontal-big-placeholder.png)
 
-![](pictures/horizontal-cover-placeholder.jpg)
+## **![](pictures/cover-placeholder.png)**
+
+## ![](pictures/horizontal-cover-placeholder.png)
+{:.cover}
 
 ## Even Tables
 
@@ -237,12 +225,12 @@ title: Название темы
 
 |  Locavore      | Umami       | Helvetica | Vegan     |
 +----------------|-------------|-----------|-----------+
-|* Fingerstache *| Kale        | Chips     | Keytar    |
-|* Sriracha     *| Gluten-free | Ennui     | Keffiyeh  |
-|* Thundercats  *| Jean        | Shorts    | Biodiesel |
-|* Terry        *| Richardson  | Swag      | Blog      |
-
-It’s good to have information organized.
+| Fingerstache   | Kale        | Chips     | Keytar    |
+| Sriracha       | Gluten-free | Ennui     | Keffiyeh  |
+| Thundercats    | Jean        | Shorts    | Biodiesel |
+| Terry          | Richardson  | Swag      | Blog      |
++----------------|-------------|-----------|-----------+
+| Terry          | Richardson  | Swag      | Blog      |
 
 ## **Контакты** {#contacts}
 
@@ -254,6 +242,7 @@ It’s good to have information organized.
         <p class="phone">+7 (000) 000-00-00</p>
         <p class="twitter">@twitter</p>
         <p class="mail">почта@yandex-team.ru</p>
+        <!-- <p class="vk">vk</p> -->
         <p class="facebook">facebook</p>
     </div>
 </div>
