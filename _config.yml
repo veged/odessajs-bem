@@ -8,7 +8,6 @@ default_width: 792
 default_lang: ru
 default_body_class: list
 
-
 kramdown:
   enable_coderay: false
 
