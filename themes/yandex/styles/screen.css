@@ -550,7 +550,7 @@ body.full .slide:after
 .slide code[class*='language-'],
 .slide pre[class*='language-']
 {
-    font-family: 'InputMono';
+    font-family: 'InputMono' !important;
     font-size: 21px;
     line-height: 1.2;
 }

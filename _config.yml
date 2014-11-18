@@ -1,13 +1,16 @@
 safe: true
-markdown: kramdown
-highlighter: pygments
 permalink: /:title.html
 exclude: [ assets ]
+markdown: kramdown
 
 default_theme: yandex
 default_width: 792
 default_lang: ru
 default_body_class: list
+
+
+kramdown:
+  enable_coderay: false
 
 author:
     name: Автор

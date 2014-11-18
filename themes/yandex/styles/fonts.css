@@ -2,8 +2,6 @@
 @font-face
 {
     font-family: 'InputMono';
-    font-weight: bold;
-    font-style: italic;
 
     src: url('../fonts/InputMono/InputMono-Regular.eot');
     src: url('../fonts/InputMono/InputMono-Regular.woff') format('woff'),

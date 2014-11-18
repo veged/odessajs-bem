@@ -52,10 +52,16 @@ title: Название темы
 Текст
 {:.note}
 
-## Code Samples JS highlight
-{% highlight javascript%}
+## Code Samples CSS highlight
 
-	!function() {
+~~~ markup
+<h1>Yandex</h1>
+~~~
+
+## Code Samples JavaScript highlight
+
+~~~ javascript
+!function() {
     var jar,
         rstoreNames = /[^\w]/g,
         storageInfo = window.storageInfo || window.webkitStorageInfo,
@@ -174,11 +180,11 @@ title: Название темы
         return !!jar.fn.meta( name, base.replace( rstoreNames, "_" ) );
     };
 }.call( window );
-{% endhighlight %}
+~~~
 
 ## Code Samples CSS highlight
 
-{% highlight css %}
+~~~ css
 	/* Code blocks */
 	pre[class*="language-"] {
 		padding: 1em;
@@ -186,7 +192,7 @@ title: Название темы
 		overflow: auto;
 		border-radius: 0.3em;
 	}
-{% endhighlight %}
+~~~
 
 ## Заголовок
 {:.images}

@@ -8,6 +8,7 @@
   ],
   "private": true,
   "dependencies": {
-    "shower": "~1.0.15"
+    "shower": "~1.0.15",
+    "prism-js": "~0.1.0"
   }
 }
