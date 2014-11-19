@@ -141,6 +141,11 @@ You don't need to recreate or think on Shower's HTML structure, you just delimit
 
 By default the slide would take an `id` from it's content, almost like in GitHub-flavored markdown. But if you want to override it, you could use the syntax [kramdown](http://kramdown.rubyforge.org) (which is used for Jekyller) provides, like this:
 
+### Syntax theme
+
+You could use either twilight prism theme or white "yandex" theme.
+
+
 ``` md
 ## I'm a slide! {#Foo}
 ```

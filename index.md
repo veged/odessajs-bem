@@ -21,8 +21,6 @@ title: Название темы
 
 ### Название раздела
 
-<div class="down-arrow"></div>
-
 ## Заголовок
 
 ### Вводный текст (первый уровень текста)
@@ -52,13 +50,13 @@ title: Название темы
 Текст
 {:.note}
 
-## Code Samples CSS highlight
+## Пример подсветки кода на HTML
 
 ~~~ markup
 <h1>Yandex</h1>
 ~~~
 
-## Code Samples JavaScript highlight
+## Пример подсветки кода на JavaScript
 
 ~~~ javascript
 !function() {
@@ -182,16 +180,62 @@ title: Название темы
 }.call( window );
 ~~~
 
-## Code Samples CSS highlight
+## Пример подсветки кода на JavaScript с текстом
+
+Вводный текст
+
+~~~ javascript
+!function() {
+    var jar,
+        rstoreNames = /[^\w]/g,
+        storageInfo = window.storageInfo || window.webkitStorageInfo,
+        toString = "".toString;
+
+    jar = this.jar = function( name, storage ) {
+        return new jar.fn.init( name, storage );
+    };
+
+    jar.storages = [];
+    jar.instances = {};
+    jar.prefixes = {
+        storageInfo: storageInfo
+    };
+}.call( window );
+~~~
+
+
+## Пример подсветки кода на CSS
 
 ~~~ css
-	/* Code blocks */
-	pre[class*="language-"] {
-		padding: 1em;
-		margin: .5em 0;
-		overflow: auto;
-		border-radius: 0.3em;
-	}
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+~~~
+
+## &nbsp;
+{:.big-code}
+
+~~~ javascript
+!function() {
+    var jar,
+        rstoreNames = /[^\w]/g,
+        storageInfo = window.storageInfo || window.webkitStorageInfo,
+        toString = "".toString;
+
+    jar = this.jar = function( name, storage ) {
+        return new jar.fn.init( name, storage );
+    };
+
+    jar.storages = [];
+    jar.instances = {};
+    jar.prefixes = {
+        storageInfo: storageInfo
+    };
+}.call( window );
 ~~~
 
 ## Заголовок
@@ -225,10 +269,20 @@ title: Название темы
 ## ![](pictures/horizontal-cover-placeholder.png)
 {:.cover}
 
-## Even Tables
+## Таблица
 
-<!-- Need to add row `th` somehow -->
+|  Locavore      | Umami       | Helvetica | Vegan     |
++----------------|-------------|-----------|-----------+
+| Fingerstache   | Kale        | Chips     | Keytar    |
+| Sriracha       | Gluten-free | Ennui     | Keffiyeh  |
+| Thundercats    | Jean        | Shorts    | Biodiesel |
+| Terry          | Richardson  | Swag      | Blog      |
++----------------|-------------|-----------|-----------+
 
+
+## Таблица с дополнительным полем
+
+{:.with-additional-line}
 |  Locavore      | Umami       | Helvetica | Vegan     |
 +----------------|-------------|-----------|-----------+
 | Fingerstache   | Kale        | Chips     | Keytar    |

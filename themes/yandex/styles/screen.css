@@ -277,7 +277,8 @@ body.full .slide:after
 .slide#contacts .contacts .mail,
 .slide#contacts .contacts .twitter,
 .slide#contacts .contacts .facebook,
-.slide#contacts .contacts .vk
+.slide#contacts .contacts .vk,
+.slide#contacts .contacts .github
 {
     line-height: 40px;
 }
@@ -294,6 +295,12 @@ body.full .slide:after
     padding-left: 60px;
 
     background: url('../images/mail.png') no-repeat;
+}
+
+.slide#contacts .contacts .github {
+    padding-left: 60px;
+
+    background: url('../images/github.png') no-repeat;
 }
 
 .slide#contacts .contacts .twitter
@@ -550,9 +557,9 @@ body.full .slide:after
     background:         linear-gradient(bottom, black,black .055em, transparent .055em,transparent ) repeat-x;
 }
 
-.slide table tbody:last-of-type,
-.slide table tbody:last-of-type tr,
-.slide table tbody:last-of-type td
+.slide table.with-additional-line tbody:last-of-type,
+.slide table.with-additional-line tbody:last-of-type tr,
+.slide table.with-additional-line tbody:last-of-type td
 {
     color: white;
     background: #535353;
@@ -571,13 +578,26 @@ body.full .slide:after
 {
     overflow: auto;
 
-    max-height: 490px;
-    margin: .5em 0;
-    padding: 1em;
+    width: 984px;
+    max-height: 437px;
+    margin-left: -62px;
+    padding-left: 60px;
+    padding-bottom: 31px;
 
     border: none;
     border-radius: .1px;
     box-shadow: none;
+}
+
+.slide.big-code pre[class*='language-']
+{
+    position: absolute;
+    top: -11px;
+    bottom: -10px;
+    left: 62px;
+
+    width: 982px;
+    max-height: 578px !important;
 }
 
 /* Lists */
@@ -694,6 +714,8 @@ body.full .slide:after
 
 .full .progress div
 {
+    height: 10px;
+
     background: #ffd700;
 }
 
