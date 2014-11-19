@@ -13,7 +13,7 @@ title: Название темы
 <div class="nda"></div>
 
 <div class="info">
-    <p class="author">{{ site.author.name }}, <br/> {{ site.author.position }}</p>
+	<p class="author">{{ site.author.name }}, <br/> {{ site.author.position }}</p>
 </div>
 
 ## Название темы
@@ -29,10 +29,10 @@ title: Название темы
 
 
 *  Второй уровень текста
-    * Третий уровень текста (буллиты)
-    * Третий уровень текста (буллиты)
+	* Третий уровень текста (буллиты)
+	* Третий уровень текста (буллиты)
 
-    1. Четвертый уровень текста
+	1. Четвертый уровень текста
 
 ## Заголовок
 
@@ -40,10 +40,10 @@ title: Название темы
 ![placeholder](pictures/vertical-placeholder.png){:.right}
 
 *  Второй уровень текста
-    * Третий уровень текста (буллиты)
-    * Третий уровень текста (буллиты)
+	* Третий уровень текста (буллиты)
+	* Третий уровень текста (буллиты)
 
-    1. Четвертый уровень текста
+	1. Четвертый уровень текста
 
 ## &nbsp;
 {:.with-big-quote}
@@ -185,13 +185,13 @@ title: Название темы
 ## Code Samples CSS highlight
 
 ~~~ css
-    /* Code blocks */
-    pre[class*="language-"] {
-        padding: 1em;
-        margin: .5em 0;
-        overflow: auto;
-        border-radius: 0.3em;
-    }
+	/* Code blocks */
+	pre[class*="language-"] {
+		padding: 1em;
+		margin: .5em 0;
+		overflow: auto;
+		border-radius: 0.3em;
+	}
 ~~~
 
 ## Заголовок
@@ -241,14 +241,14 @@ title: Название темы
 ## **Контакты** {#contacts}
 
 <div class="info">
-    <p class="author">{{ site.author.name }}</p>
+<p class="author">{{ site.author.name }}</p>
     <p class="position">{{ site.author.position }}</p>
 
     <div class="contacts">
-        <p class="phone">+7 (000) 000-00-00</p>
-        <p class="twitter">@twitter</p>
-        <p class="mail">почта@yandex-team.ru</p>
-        <!-- <p class="vk">vk</p> -->
-        <p class="facebook">facebook</p>
+        <p class="contacts-left contacts-top phone">+7 (000) 000-00-00</p>
+        <p class="contacts-left mail">почта@yandex-team.ru</p>
+        <p class="contacts-right contacts-top twitter">@twitter</p>
+        <!-- <p class="contacts-right contacts-bottom vk">vk</p> -->
+        <p class="contacts-right facebook">facebook</p>
     </div>
 </div>

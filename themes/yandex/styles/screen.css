@@ -175,8 +175,6 @@ body.full .slide:after
 .slide.with-big-quote blockquote
 {
     font-size: 70px;
-    text-align: left;
-
     font-weight: lighter;
 
     position: absolute;
@@ -191,11 +189,13 @@ body.full .slide:after
         -ms-transform: translateY(-50%);
          -o-transform: translateY(-50%);
             transform: translateY(-50%);
+    text-align: left;
 
     color: #000;
 }
 
-.slide.with-big-quote blockquote {
+.slide.with-big-quote blockquote
+{
     border-width: 8px;
 }
 
@@ -220,15 +220,14 @@ body.full .slide:after
     margin: 0;
 }
 
-.slide#contacts > div {
+.slide#contacts > div
+{
     padding-left: 80px;
 }
 
 .slide#contacts h2
 {
     position: static;
-
-    text-align: left;
 
     margin-top: 60px;
     padding: 0;
@@ -237,6 +236,7 @@ body.full .slide:after
      -ms-transform: translateY(0);
       -o-transform: translateY(0);
          transform: translateY(0);
+    text-align: left;
 }
 
 .slide#contacts .info p
@@ -256,13 +256,34 @@ body.full .slide:after
     margin-top: 60px;
 }
 
-.slide#contacts .contacts .phone
+.slide#contacts .contacts .contacts-left
 {
-    line-height: 40px;
-
     position: absolute;
     left: 80px;
+}
 
+.slide#contacts .contacts .contacts-right
+{
+    position: absolute;
+    left: 650px;
+}
+
+.slide#contacts .contacts .contacts-top
+{
+    margin-top: 100px;
+}
+
+.slide#contacts .contacts .phone,
+.slide#contacts .contacts .mail,
+.slide#contacts .contacts .twitter,
+.slide#contacts .contacts .facebook,
+.slide#contacts .contacts .vk
+{
+    line-height: 40px;
+}
+
+.slide#contacts .contacts .phone
+{
     padding-left: 40px;
 
     background: url('../images/phone.png') no-repeat;
@@ -270,12 +291,6 @@ body.full .slide:after
 
 .slide#contacts .contacts .mail
 {
-    line-height: 40px;
-
-    position: absolute;
-    left: 80px;
-
-    margin-top: 100px;
     padding-left: 60px;
 
     background: url('../images/mail.png') no-repeat;
@@ -284,9 +299,6 @@ body.full .slide:after
 .slide#contacts .contacts .twitter
 {
     line-height: 40px;
-
-    position: absolute;
-    left: 650px;
 
     padding-left: 60px;
 
@@ -297,10 +309,6 @@ body.full .slide:after
 {
     line-height: 40px;
 
-    position: absolute;
-    left: 650px;
-
-    margin-top: 100px;
     padding-left: 60px;
 
     background: url('../images/facebook.png') no-repeat;
@@ -310,10 +318,6 @@ body.full .slide:after
 {
     line-height: 40px;
 
-    position: absolute;
-    left: 650px;
-
-    margin-top: 100px;
     padding-left: 60px;
 }
 
@@ -512,38 +516,45 @@ body.full .slide:after
     left: 0;
 }
 
-.slide.images.two p:first-of-type {
+.slide.images.two p:first-of-type
+{
     margin-left: 19px;
 }
 
-.slide.images.two p:last-of-type {
+.slide.images.two p:last-of-type
+{
     margin-right: 19px;
 }
 
 /* Tables */
 .slide table td,
-.slide table th {
+.slide table th
+{
     padding-left: 15px;
 }
 
 .slide table thead,
-.slide table th {
+.slide table th
+{
     font-weight: lighter;
+
     background: rgb(254,195,0);
 }
 
-.slide table td {
+.slide table td
+{
     background: -webkit-linear-gradient(bottom, black,black .055em, transparent .055em,transparent ) repeat-x;
-    background: -moz-linear-gradient(bottom, black,black .055em, transparent .055em,transparent ) repeat-x;
-    background: -ms-linear-gradient(bottom, black,black .055em, transparent .055em,transparent ) repeat-x;
-    background: linear-gradient(bottom, black,black .055em, transparent .055em,transparent ) repeat-x;
+    background:    -moz-linear-gradient(bottom, black,black .055em, transparent .055em,transparent ) repeat-x;
+    background:     -ms-linear-gradient(bottom, black,black .055em, transparent .055em,transparent ) repeat-x;
+    background:         linear-gradient(bottom, black,black .055em, transparent .055em,transparent ) repeat-x;
 }
 
 .slide table tbody:last-of-type,
 .slide table tbody:last-of-type tr,
-.slide table tbody:last-of-type td {
-    background: #535353;
+.slide table tbody:last-of-type td
+{
     color: white;
+    background: #535353;
 }
 
 /* Code */
@@ -598,9 +609,10 @@ body.full .slide:after
 .slide > div > ul,
 .slide > div > ol
 {
+    font-size: 30px;
+
     float: left;
     clear: left;
-    font-size: 30px;
 }
 
 .slide > div > ul > li:lang(ru):before
@@ -668,11 +680,13 @@ body.full .slide:after
 .slide.shout h2
 {
     line-height: 1;
-    left: 0;
+
     right: 0;
-    text-align: center;
+    left: 0;
 
     margin: 0;
+
+    text-align: center;
 
     color: black;
 }
