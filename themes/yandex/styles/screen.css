@@ -18,15 +18,6 @@ body.list
     color: white !important;
 }
 
-.right
-{
-    float: right;
-
-    width: 360px;
-    /*TODO: перенести*/
-    margin-left: 40px;
-}
-
 /* Slide
 ------------------------------- */
 .slide
@@ -110,7 +101,7 @@ body.full .slide:after
     display: block;
 }
 
-.slide#cover .service,
+.slide#cover .s,
 .slide.section h2
 {
     position: absolute;
@@ -119,16 +110,32 @@ body.full .slide:after
     left: 60px;
 }
 
+.slide#cover .s
+{
+    position: absolute;
+    z-index: 100;
+    top: 51px;
+    left: 154px;
+
+    overflow: hidden;
+
+    padding-right: 20px;
+}
+
 .slide#cover .service
 {
-    font-size: 18px;
+    font-size: 27px;
+    font-weight: normal;
+    line-height: 44px;
 
-    left: 150px;
+    left: 154px;
 
-    height: 36px;
-    padding: 0 .75em;
+    height: 44px;
+    padding: 0 10px 0 10px;
 
-    border: 2px solid #ffdb4c;
+    letter-spacing: .5px;
+
+    border: 6px solid #ffcc00;
     border-right: none;
 }
 
@@ -141,18 +148,18 @@ body.full .slide:after
 {
     position: absolute;
     top: 6px;
-    right: -11px;
+    right: 5px;
 
-    width: 18px;
-    height: 20.784609690826528px;
+    width: 26px;
+    height: 31px;
 
     content: '';
     -webkit-transform: rotate(30deg)skewY(30deg);
        -moz-transform: rotate(30deg)skewY(30deg);
         -ms-transform: rotate(30deg)skewY(30deg);
-            transform: rotate(30deg)skewY(30deg);
+            transform: rotate(30deg)skewY(30deg) scale(1);
 
-    border: 2px solid #ffdb4c;
+    border: 6px solid #ffcc00;
     border-bottom-color: transparent;
     border-left-color: transparent;
 }
@@ -297,7 +304,8 @@ body.full .slide:after
     background: url('../images/mail.png') no-repeat;
 }
 
-.slide#contacts .contacts .github {
+.slide#contacts .contacts .github
+{
     padding-left: 60px;
 
     background: url('../images/github.png') no-repeat;
@@ -524,6 +532,14 @@ body.full .slide:after
     left: 0;
 }
 
+.right-image
+{
+    float: right;
+
+    width: 360px;
+    margin-left: 40px;
+}
+
 .slide.images.two p:first-of-type
 {
     margin-left: 19px;
@@ -581,8 +597,8 @@ body.full .slide:after
     width: 984px;
     max-height: 437px;
     margin-left: -62px;
-    padding-left: 60px;
     padding-bottom: 31px;
+    padding-left: 60px;
 
     border: none;
     border-radius: .1px;

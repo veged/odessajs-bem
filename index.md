@@ -9,7 +9,10 @@ title: Название темы
 # <span>Яндекс</span> {#splash}
 
 ## **{{ page.title }}** {#cover}
-<div class="service">Сервис</div>
+
+<div class="s">
+    <div class="service">Сервис</div>
+</div>
 <div class="nda"></div>
 
 <div class="info">
