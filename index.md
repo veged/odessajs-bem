@@ -52,12 +52,6 @@ title: Название темы
 Текст
 {:.note}
 
-## Пример подсветки кода на HTML
-
-~~~ markup
-<h1>Yandex</h1>
-~~~
-
 ## Пример подсветки кода на JavaScript
 
 ~~~ javascript
@@ -182,7 +176,7 @@ title: Название темы
 }.call( window );
 ~~~
 
-## Пример подсветки кода на JavaScript с текстом
+## Пример подсветки кода с дополнительным текстом
 
 Вводный текст
 
@@ -203,19 +197,6 @@ title: Название темы
         storageInfo: storageInfo
     };
 }.call( window );
-~~~
-
-
-## Пример подсветки кода на CSS
-
-~~~ css
-/* Code blocks */
-pre[class*="language-"] {
-	padding: 1em;
-	margin: .5em 0;
-	overflow: auto;
-	border-radius: 0.3em;
-}
 ~~~
 
 ## &nbsp;
