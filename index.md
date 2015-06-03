@@ -6,7 +6,7 @@ title: Название темы
 
 ---
 
-# <span>Яндекс</span> {#splash}
+# Яндекс
 
 ## **{{ page.title }}** {#cover}
 

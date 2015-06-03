@@ -47,7 +47,7 @@ body.full .slide:after
     content: '';
 }
 
-.slide#splash h2 span,
+body .slide:first-of-type h2,
 .slide#cover > div::before,
 .slide#cover > div::after
 {
@@ -75,7 +75,7 @@ body.full .slide:after
     line-height: 30px;
 }
 
-.slide#splash h2::first-letter
+body .slide:first-of-type h2::first-letter
 {
     color: red;
 }
@@ -336,11 +336,11 @@ body.full .slide:after
     padding-left: 60px;
 }
 
-.slide#splash
+body .slide:first-of-type
 {
     background: #fff;
 }
-.slide#splash h2
+body .slide:first-of-type h2
 {
     position: absolute;
     top: 0;
@@ -351,7 +351,7 @@ body.full .slide:after
     text-align: center;
 }
 
-.slide#splash h2:after
+body .slide:first-of-type h2:after
 {
     display: inline-block;
 
@@ -361,7 +361,7 @@ body.full .slide:after
     vertical-align: middle;
 }
 
-.slide#splash h2 > span
+body .slide:first-of-type h2
 {
     font-size: 160px;
     line-height: 100%;
