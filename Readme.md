@@ -10,19 +10,19 @@ It takes your markdown document and transforms it into the Shower slides. Almost
 
 Jekyll Shower works at GitHub Pages. Yes, it's using Jekyll and don't need any extra plugins, so using it is really staightforward:
 
-1. [Fork this repo.](https://github.com/shower/jekyller/fork_select)
+1. [Fork this repo.](https://github.yandex-team.ru/arkel/jekyller/fork)
 2. Make any changes to it (like change your username and all those stuff in the `_config.yml`). You can do it right on the GitHub, btw.
 3. Commit & Push the changes — GitHub would initialise Pages only on the first push after the forking action. That could take up to 10 minutes.
 
-That's all — after doing so you could go at your generated pages — replace there the `username` with your username: `http://username.github.com/jekyller/`, and you'll see Jekyll-generated example of the Shower presentation.
+That's all — after doing so you could go at your generated pages — replace there the `username` with your username: `https://github.yandex-team.ru/pages/<username>/jekyller/`, and you'll see Jekyll-generated example of the Shower presentation.
 
 ### Local usage
 
 If you'd like to preview the changes or compile it locally, so you'd have static HTML of your slides (and you could access them without an internet access), you should clone this repo (or a fork) locally:
 
-    git clone git://github.com/shower/jekyller.git
+    git clone git://github.com/arkel/jekyller.git
 
-After cloning all you'll need to do is to run `bower install command` and Jekyll in the cloned folder. On how to install and run Jekyll [read it's readme](https://github.com/mojombo/jekyll#getting-started).
+After cloning all you'll need to do is to run [`bower install command`](https://bower.io/#install-bower) and Jekyll in the cloned folder. On how to install and run Jekyll [read it's readme](https://github.com/mojombo/jekyll#getting-started).
 
 ## Use
 
@@ -107,7 +107,7 @@ If you'd like to disable the progress bar, just set the `progress` (in [config](
 
 ### More configuration option coming
 
-Stay tuned or propose your options in [Issues](https://github.com/shower/jekyller/issues)!
+Stay tuned or propose your options in [Issues](https://github.com/arkel/jekyller/issues)!
 
 ## Features
 
@@ -276,6 +276,6 @@ With Jekyller you can have all your presentations in one place: just create a ne
 
 This is just a generator for the awesome [Shower](https://github.com/shower/shower) engine by [pepelsbey](https://github.com/pepelsbey) and [other nice people](https://github.com/shower/shower#contributing).
 
-All the themes are [attached as submodules](https://github.com/shower/jekyller/tree/gh-pages/themes), and all the rights for them are belong to their authors.
+All the themes are [attached as submodules](https://github.com/arkel/jekyller/tree/gh-pages/themes), and all the rights for them are belong to their authors.
 
 Jekyll Shower licensed under [MIT License](http://en.wikipedia.org/wiki/MIT_License), see [license page](License.md#the-mit-license) for details.
