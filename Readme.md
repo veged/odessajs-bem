@@ -22,7 +22,7 @@ If you'd like to preview the changes or compile it locally, so you'd have static
 
     git clone git://github.com/arkel/jekyller.git
 
-After cloning all you'll need to do is to run [`bower install command`](https://bower.io/#install-bower) and Jekyll in the cloned folder. On how to install and run Jekyll [read it's readme](https://github.com/mojombo/jekyll#getting-started).
+After cloning all you'll need to do is to run [`bower install`](https://bower.io/#install-bower) and Jekyll in the cloned folder. On how to install and run Jekyll [read it's readme](https://github.com/mojombo/jekyll#getting-started).
 
 ## Use
 
