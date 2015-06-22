@@ -106,8 +106,8 @@ body .slide:first-of-type h2::first-letter
 {
     position: absolute;
     z-index: 100;
-    top: 60px;
-    left: 60px;
+    top: 83px;
+    left: 120px;
 }
 
 .slide#cover .s
@@ -181,12 +181,12 @@ body .slide:first-of-type h2::first-letter
 .slide.section h3,
 .slide.with-big-quote blockquote
 {
-    font-size: 70px;
+    font-size: 60px;
     font-weight: lighter;
 
     position: absolute;
     top: 50%;
-    left: 60px;
+    left: 120px;
 
     width: 100%;
     margin-top: 0;
@@ -377,7 +377,7 @@ body .slide:first-of-type h2
 
 .slide.section h2
 {
-    font-size: 30px;
+    font-size: 26px;
     font-weight: lighter;
 }
 
