@@ -30,7 +30,6 @@ title: Название темы
 
 *  Второй уровень текста
 	* Третий уровень текста (буллиты)
-	* Третий уровень текста (буллиты)
 
 	1. Четвертый уровень текста
 
@@ -176,7 +175,8 @@ title: Название темы
 }.call( window );
 ~~~
 
-## Пример подсветки кода с дополнительным текстом
+## Пример подсветки кода
+{:.code-with-text}
 
 Вводный текст
 
@@ -279,7 +279,7 @@ title: Название темы
 
 <div class="info">
 <p class="author">{{ site.author.name }}</p>
-    <p class="position">{{ site.author.position }}</p>
+<p class="position">{{ site.author.position }}</p>
 
     <div class="contacts">
         <p class="contacts-left contacts-top phone">+7 (000) 000-00-00</p>
