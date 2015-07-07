@@ -42,7 +42,6 @@ body.list
 {
     width: 937px;
     height: 595px;
-
     padding: 35px 44px 0 44px;
 }
 
@@ -65,6 +64,7 @@ body .slide:first-of-type h2,
 
     color: #f00;
 }
+
 .slide#cover > div::after
 {
     margin-left: .45em;
@@ -89,12 +89,12 @@ body .slide:first-of-type h2::first-letter
 .slide#cover > div::after,
 .slide#contacts > div::after
 {
-    font-size: 39px;
-    line-height: 100%;
-
     position: absolute;
     top: 83px;
     left: 120px;
+
+    font-size: 39px;
+    line-height: 100%;
 }
 
 .slide#cover > div::before,
@@ -128,10 +128,6 @@ body .slide:first-of-type h2::first-letter
 
 .slide#cover .service
 {
-    font-size: 27px;
-    font-weight: normal;
-    line-height: 44px;
-
     left: 154px;
 
     height: 44px;
@@ -141,6 +137,10 @@ body .slide:first-of-type h2::first-letter
 
     border: 6px solid #ffcc00;
     border-right: none;
+
+    font-size: 27px;
+    font-weight: normal;
+    line-height: 44px;
 }
 
 .slide.section h2
@@ -185,9 +185,6 @@ body .slide:first-of-type h2::first-letter
 .slide.section h3,
 .slide.with-big-quote blockquote
 {
-    font-size: 60px;
-    font-weight: lighter;
-
     position: absolute;
     top: 50%;
     left: 120px;
@@ -203,6 +200,9 @@ body .slide:first-of-type h2::first-letter
     text-align: left;
 
     color: #000;
+
+    font-size: 60px;
+    font-weight: lighter;
 }
 
 .slide.with-big-quote > div {
@@ -263,9 +263,9 @@ body .slide:first-of-type h2::first-letter
 
 .slide#contacts .info p
 {
-    font-size: 30px;
-
     white-space: nowrap;
+
+    font-size: 30px;
 }
 
 .slide#contacts .contacts
@@ -323,27 +323,27 @@ body .slide:first-of-type h2::first-letter
 
 .slide#contacts .contacts .twitter
 {
-    line-height: 40px;
-
     padding-left: 60px;
 
     background: url('../images/twitter.png') no-repeat;
+
+    line-height: 40px;
 }
 
 .slide#contacts .contacts .facebook
 {
-    line-height: 40px;
-
     padding-left: 60px;
 
     background: url('../images/facebook.png') no-repeat;
+
+    line-height: 40px;
 }
 
 .slide#contacts .contacts .vk
 {
-    line-height: 40px;
-
     padding-left: 60px;
+
+    line-height: 40px;
 }
 
 body .slide:first-of-type
@@ -373,10 +373,10 @@ body .slide:first-of-type h2:after
 
 body .slide:first-of-type h2
 {
+    vertical-align: middle;
+
     font-size: 160px;
     line-height: 100%;
-
-    vertical-align: middle;
 }
 
 /* Section */
@@ -394,9 +394,9 @@ body .slide:first-of-type h2
 /* Header */
 .slide h2
 {
-    font: 50px Textbook, Arial;
-
     margin: 0 0 120px 0;
+
+    font: 50px Textbook, Arial;
 }
 
 .slide h3,
@@ -413,17 +413,20 @@ body .slide:first-of-type h2
 {
     margin: 0 0 30px;
 }
+
 .slide p.note
 {
     position: absolute;
-    left: 37px;
     bottom: 90px;
+    left: 37px;
 
-    font-size: 16px;
     letter-spacing: 0.8px;
 
     color: black;
+
+    font-size: 16px;
 }
+
 .slide a
 {
     text-decoration: none;
@@ -435,28 +438,28 @@ body .slide:first-of-type h2
 /* Quote */
 .slide blockquote
 {
-    font-size: 30px;
-    font-style: normal;
-
     margin-bottom: 20px;
     padding-left: 10px;
 
     border-left: 5px solid rgb(254,195,0);
+
+    font-size: 30px;
+    font-style: normal;
 }
 
 .slide blockquote:before
 {
-    font-style: inherit;
-
     content: '';
+
+    font-style: inherit;
 }
 
 .slide.with-big-quote blockquote
 {
-    line-height: 1;
-
     margin: 0;
     padding-left: 25px;
+
+    line-height: 1;
 }
 
 .slide.with-big-quote blockquote p
@@ -524,11 +527,11 @@ body .slide:first-of-type h2
 
 .slide.images em
 {
-    font-style: normal;
-
     position: absolute;
     bottom: -66px;
     left: 0;
+
+    font-style: normal;
 }
 
 .right-image
@@ -559,9 +562,9 @@ body .slide:first-of-type h2
 .slide table thead,
 .slide table th
 {
-    font-weight: lighter;
-
     background: rgb(254,195,0);
+
+    font-weight: lighter;
 }
 
 .slide table td
@@ -631,16 +634,18 @@ body .slide:first-of-type h2
 
     counter-reset: list;
 }
+
 .slide ol li,
 .slide ul li
 {
-    font-weight: lighter;
-
     margin-top: 19px;
 
     text-indent: -38px;
     letter-spacing: 1px;
+
+    font-weight: lighter;
 }
+
 .slide ol > li:before,
 .slide ul > li:before
 {
@@ -654,21 +659,21 @@ body .slide:first-of-type h2
 .slide > div > ul,
 .slide > div > ol
 {
-    font-size: 30px;
-
     float: left;
     clear: left;
+
+    font-size: 30px;
 }
 
 .slide > div > ul > li:lang(ru):before
 {
-    line-height: 25px;
-
     margin-left: 21px;
 
     content: '\0';
 
     border-left: 5px solid rgb(254,195,0);
+
+    line-height: 25px;
 }
 
 .slide ul ul > li:lang(ru):before
@@ -676,17 +681,18 @@ body .slide:first-of-type h2
     position: relative;
     left: -4px;
 
-    font-weight: normal;
-
     content: '〉 ';
+
+    font-weight: normal;
 }
 
 .slide > div > ul > li
 {
+    letter-spacing: 0.2px;
+
     font-size: 27px;
     font-weight: normal;
     line-height: 1;
-    letter-spacing: 0.2px;
 }
 
 .slide ol > li:before
@@ -716,6 +722,7 @@ body .slide:first-of-type h2
        -moz-column-gap: 0;
             column-gap: 0;
 }
+
 .slide ol.double li,
 .slide ul.double li
 {
@@ -726,10 +733,9 @@ body .slide:first-of-type h2
 {
     background: #fff;
 }
+
 .slide.shout h2
 {
-    line-height: 1;
-
     right: 0;
     left: 0;
 
@@ -738,6 +744,8 @@ body .slide:first-of-type h2
     text-align: center;
 
     color: black;
+
+    line-height: 1;
 }
 
 .full .progress div
@@ -754,12 +762,13 @@ body .slide:first-of-type h2
 
 .caption a
 {
-    line-height: 1.1;
-
     display: inline-block;
 
     color: #000;
+
+    line-height: 1.1;
 }
+
 .list .slide:target:after
 {
     color: #000;
