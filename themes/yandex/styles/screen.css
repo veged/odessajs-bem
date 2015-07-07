@@ -40,11 +40,10 @@ body.list
 
 .slide > div
 {
-    width: 884px;
+    width: 937px;
     height: 595px;
 
-    padding-top: 35px;
-    padding-left: 44px;
+    padding: 35px 44px 0 44px;
 }
 
 body.full .slide:after
@@ -417,7 +416,7 @@ body .slide:first-of-type h2
 .slide p.note
 {
     position: absolute;
-    left: 40px;
+    left: 37px;
     bottom: 90px;
 
     font-size: 16px;
