@@ -189,7 +189,7 @@ body .slide:first-of-type h2::first-letter
     top: 50%;
     left: 120px;
 
-    width: 100%;
+    width: 784px;
     margin-top: 0;
 
     -webkit-transform: translateY(-50%);
@@ -394,7 +394,7 @@ body .slide:first-of-type h2
 /* Header */
 .slide h2
 {
-    margin: 0 0 120px 0;
+    margin: 0 0 80px 0;
 
     font: 50px Textbook, Arial;
 }
@@ -402,8 +402,6 @@ body .slide:first-of-type h2
 .slide h3,
 .slide h4
 {
-    float: left;
-
     font-size: 30px;
     line-height: 1;
 }
@@ -528,8 +526,6 @@ body .slide:first-of-type h2
 .slide.images em
 {
     position: absolute;
-    bottom: -66px;
-    left: 0;
 
     font-style: normal;
 }
@@ -599,8 +595,7 @@ body .slide:first-of-type h2
     width: 984px;
     max-height: 437px;
     margin-left: -45px;
-    padding-bottom: 31px;
-    padding-left: 46px;
+    padding: 10px 46px;
 
     border: none;
     border-radius: 0;
