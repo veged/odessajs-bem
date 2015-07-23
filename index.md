@@ -11,7 +11,7 @@ title: Название темы
 ## **{{ page.title }}** {#cover}
 
 <div class="s">
-    <div class="service">Сервис</div>
+    <div class="service">{{ site.author.service }}</div>
 </div>
 <div class="nda"></div>
 
@@ -19,7 +19,7 @@ title: Название темы
 	<p class="author">{{ site.author.name }}, <br/> {{ site.author.position }}</p>
 </div>
 
-## Название темы
+## Верхний колонтитул
 {:.section}
 
 ### Название раздела

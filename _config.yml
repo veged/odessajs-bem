@@ -14,6 +14,7 @@ kramdown:
 author:
     name: Автор
     position: Должность
+    service: Сервис
     company:
         name: Яндекс
         url:  http://yandex.ru/
