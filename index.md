@@ -253,7 +253,7 @@ $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
 ## Заголовок
 {:.center}
 
-![](pictures/horizontal-big-placeholder.png)
+![](pictures/horizontal-big-placeholder.png){:.tmp}
 
 ## **![](pictures/cover-placeholder.png)**
 
