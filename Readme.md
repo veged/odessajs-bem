@@ -20,9 +20,9 @@ That's all — after doing so you could go at your generated pages — replace t
 
 If you'd like to preview the changes or compile it locally, so you'd have static HTML of your slides (and you could access them without an internet access), you should clone this repo (or a fork) locally:
 
-    git clone git://github.com/arkel/jekyller.git
+    git clone git://github.yandex-team.ru/arkel/jekyller.git
 
-After cloning all you'll need to do is to run [`bower install`](https://bower.io/#install-bower) and Jekyll in the cloned folder. On how to install and run Jekyll [read it's readme](https://github.com/mojombo/jekyll#getting-started).
+After cloning all you'll need to do is to run Jekyll in the cloned folder. On how to install and run Jekyll [read it's readme](https://github.com/mojombo/jekyll#getting-started).
 
 ## Use
 
