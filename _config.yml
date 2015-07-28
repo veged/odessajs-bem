@@ -11,10 +11,14 @@ default_body_class: list
 kramdown:
   enable_coderay: false
 
+presentation:
+    title: Название темы
+    service: Сервис
+    nda: true
+
 author:
     name: Автор
     position: Должность
-    service: Сервис
     company:
         name: Яндекс
         url:  http://yandex.ru/

@@ -2,18 +2,19 @@
 
 layout: default
 
-title: Название темы
-
 ---
 
 # Яндекс
 
-## **{{ page.title }}** {#cover}
+## **{{ site.presentation.title }}** {#cover}
 
 <div class="s">
-    <div class="service">{{ site.author.service }}</div>
+    <div class="service">{{ site.presentation.service }}</div>
 </div>
+
+{% if site.presentation.nda %}
 <div class="nda"></div>
+{% endif %}
 
 <div class="info">
 	<p class="author">{{ site.author.name }}, <br/> {{ site.author.position }}</p>
