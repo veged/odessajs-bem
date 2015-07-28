@@ -795,3 +795,43 @@ body .slide:first-of-type h2
 {
     color: #000;
 }
+
+@media print {
+  .list .slide.cover:after,
+  .list .slide.shout:after,
+  .slide:after
+  {
+    display: none;
+  }
+
+  .slide {
+    width: 100%;
+    margin: 0;
+  }
+
+  .slide > div {
+    width: 1024px;
+    margin: 0;
+    padding-right: 0;
+  }
+
+  .full .slide {
+    position: relative;
+  }
+
+  .slide pre[class*='language-'] {
+    margin: 0;
+  }
+
+  .right-image {
+    right: 0;
+  }
+
+  .slide.cover img {
+    left: 44px !important;
+  }
+
+  .slide.shout h2 {
+    position: relative;
+  }
+}
