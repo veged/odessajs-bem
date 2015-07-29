@@ -1,16 +1,6 @@
 @import url('../../../bower_components/shower-bright/styles/screen.css');
 @import url('fonts.css');
 
-/*
-    TODO: удалить;
- */
-.tmp
-{
-    width: 935px;
-    height: 460px;
-}
-
-
 body
 {
     font: 25px/2 Textbook, Arial;
@@ -51,7 +41,7 @@ body.list
 .slide > div
 {
     width: 937px;
-    height: 595px;
+    height: 603px;
     padding: 35px 44px 0 44px;
 }
 
@@ -145,7 +135,7 @@ body .slide:first-of-type h2::first-letter
 
     letter-spacing: .5px;
 
-    border: 6px solid #ffcc00;
+    border: 6px solid #fc0;
     border-right: none;
 
     font-size: 27px;
@@ -173,7 +163,7 @@ body .slide:first-of-type h2::first-letter
         -ms-transform: rotate(30deg)skewY(30deg);
             transform: rotate(30deg)skewY(30deg) scale(1);
 
-    border: 6px solid #ffcc00;
+    border: 6px solid #fc0;
     border-bottom-color: transparent;
     border-left-color: transparent;
 }
@@ -758,6 +748,7 @@ body .slide:first-of-type h2
 
 .slide.shout h2
 {
+    position: relative;
     right: 0;
     left: 0;
 
@@ -793,7 +784,7 @@ body .slide:first-of-type h2
 
 .list .slide:target:after
 {
-    color: #000;
+    color: #fc0;
 }
 
 @media print {
@@ -806,17 +797,6 @@ body .slide:first-of-type h2
 
   .slide {
     width: 100%;
-    margin: 0;
-  }
-
-  .slide > div {
-    width: 1024px;
-    margin: 0;
-    padding-right: 0;
-  }
-
-  .full .slide {
-    position: relative;
   }
 
   .slide pre[class*='language-'] {
@@ -828,10 +808,21 @@ body .slide:first-of-type h2
   }
 
   .slide.cover img {
-    left: 44px !important;
+    left: 0;
   }
 
-  .slide.shout h2 {
-    position: relative;
+  .slide.big-code > div {
+    width: 100%;
+    padding: 0;
   }
+
+
+  .slide.big-code pre[class*='language-'] {
+    left: 0;
+  }
+
+  .slide.cover > div {
+    left: 20px;
+  }
+
 }
