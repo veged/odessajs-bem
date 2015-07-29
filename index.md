@@ -182,22 +182,14 @@ layout: default
 Вводный текст
 
 ~~~ javascript
-!function() {
-    var jar,
-        rstoreNames = /[^\w]/g,
-        storageInfo = window.storageInfo || window.webkitStorageInfo,
-        toString = "".toString;
+var jar,
+    rstoreNames = /[^\w]/g,
+    storageInfo = window.storageInfo || window.webkitStorageInfo,
+    toString = "".toString;
 
-    jar = this.jar = function( name, storage ) {
-        return new jar.fn.init( name, storage );
-    };
-
-    jar.storages = [];
-    jar.instances = {};
-    jar.prefixes = {
-        storageInfo: storageInfo
-    };
-}.call( window );
+jar = this.jar = function( name, storage ) {
+    return new jar.fn.init( name, storage );
+};
 ~~~
 
 ## &nbsp;
