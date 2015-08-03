@@ -9,6 +9,6 @@
     "libs"
   ],
   "dependencies": {
-    "bem-components": "2.2.1"
+    "material-design-lite": "google/material-design-lite#master"
   }
 }
