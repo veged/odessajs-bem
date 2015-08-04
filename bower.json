@@ -9,6 +9,7 @@
     "libs"
   ],
   "dependencies": {
-    "material-design-lite": "google/material-design-lite#master"
+    "bem-core": "2.7.0",
+    "material-design-lite": "https://github.com/google/material-design-lite/archive/master.zip"
   }
 }

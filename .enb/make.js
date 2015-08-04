@@ -15,11 +15,11 @@ var techs = {
         prependYm: require('enb-modules/techs/prepend-modules'),
 
         // bemtree
-        // bemtree: require('enb-bemxjst/techs/bemtree-old'),
+        // bemtree: require('enb-bemxjst-2/techs/bemtree'),
 
         // bemhtml
-        bemhtml: require('enb-bemxjst/techs/bemhtml-old'),
-        htmlFromBemjson: require('enb-bemxjst/techs/html-from-bemjson')
+        bemhtml: require('enb-bemxjst-2/techs/bemhtml'),
+        htmlFromBemjson: require('enb-bemxjst-2/techs/html-from-bemjson')
     },
     enbBemTechs = require('enb-bem-techs'),
     levels = [
@@ -87,10 +87,10 @@ module.exports = function(config) {
             [techs.prependYm, { source: '?.pre.js' }],
 
             // borschik
-            [techs.borschik, { sourceTarget: '?.js', destTarget: '_?.js', freeze: true, minify: isProd }],
-            [techs.borschik, { sourceTarget: '?.css', destTarget: '_?.css', tech: 'cleancss', freeze: true, minify: isProd }]
+            [techs.borschik, { sourceTarget: '?.js', destTarget: '?.min.js', freeze: true, minify: isProd }],
+            [techs.borschik, { sourceTarget: '?.css', destTarget: '?.min.css', tech: 'cleancss', freeze: true, minify: isProd }]
         ]);
 
-        nodeConfig.addTargets([/* '?.bemtree.js', */ '?.html', '_?.css', '_?.js']);
+        nodeConfig.addTargets([/* '?.bemtree.js', */ '?.html', '?.min.css', '?.min.js']);
     });
 };

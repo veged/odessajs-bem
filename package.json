@@ -11,8 +11,9 @@
   },
   "dependencies": {
     "bower": "^1.4.1",
+    "enb-bemxjst-2": "git://github.com/tadatuta/enb-bemxjst#bem-xjst-2x",
     "glob": "^5.0.14",
-    "html2bemjson": "^1.2.0",
+    "html2bemjson": "^1.4.0",
     "node-sass": "^3.2.0",
     "stringify-object": "^2.3.0"
   },
