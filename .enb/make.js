@@ -7,7 +7,7 @@ var techs = {
         borschik: require('enb-borschik/techs/borschik'),
 
         // css
-        cssStylus: require('enb-stylus/techs/css-stylus'),
+        cssSass: require('enb-sass/techs/css-sass'),
         cssAutoprefixer: require('enb-autoprefixer/techs/css-autoprefixer'),
 
         // js
@@ -43,7 +43,7 @@ module.exports = function(config) {
             [enbBemTechs.files],
 
             // css
-            [techs.cssStylus, { target: '?.noprefix.css' }],
+            [techs.cssSass, { target: '?.noprefix.css' }],
             [techs.cssAutoprefixer, {
                 sourceTarget: '?.noprefix.css',
                 destTarget: '?.css',

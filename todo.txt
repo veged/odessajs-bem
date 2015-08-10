@@ -1,0 +1,12 @@
+  [x] вместо симлинок scss надо записывать новый файл
+  [x] import -> mustDeps (+ удалить import из scss)
+  [ ] src/_*.scss -> src/mdl-*/mdl-*.scss
+  [ ] third_party/rAF.js
+  [ ] src/mdlComponentHandler.js
+  [ ] src/images/*.svg ???
+  [ ] src/resets/_{h5bp,mobile}.scss
+  [ ] документация/примеры
+      [ ] src/snippets/ ???
+      [ ] src/*/demo.* ???
+      [ ] src/*/README.md ???
+
