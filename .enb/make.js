@@ -12,7 +12,6 @@ var techs = {
 
         // js
         browserJs: require('enb-diverse-js/techs/browser-js'),
-        prependYm: require('enb-modules/techs/prepend-modules'),
 
         // bemtree
         // bemtree: require('enb-bemxjst-2/techs/bemtree'),
@@ -23,17 +22,14 @@ var techs = {
     },
     enbBemTechs = require('enb-bem-techs'),
     levels = [
-        { path: 'libs/bem-core/common.blocks', check: false },
-        { path: 'libs/bem-core/desktop.blocks', check: false },
         { path: 'libs/material-design-lite/src', check: false },
-        'common.blocks',
-        'desktop.blocks'
+        'blocks'
     ];
 
 module.exports = function(config) {
     var isProd = process.env.YENV === 'production';
 
-    config.nodes('*.bundles/*', function(nodeConfig) {
+    config.nodes('pages/*', function(nodeConfig) {
         nodeConfig.addTechs([
             // essential
             [enbBemTechs.levels, { levels: levels }],
@@ -81,10 +77,9 @@ module.exports = function(config) {
             // js
             [techs.browserJs],
             [techs.fileMerge, {
-                target: '?.pre.js',
+                target: '?.js',
                 sources: ['?.browser.bemhtml.js', '?.browser.js']
             }],
-            [techs.prependYm, { source: '?.pre.js' }],
 
             // borschik
             [techs.borschik, { sourceTarget: '?.js', destTarget: '?.min.js', freeze: true, minify: isProd }],

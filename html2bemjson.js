@@ -13,14 +13,18 @@ glob(
             console.log('? ', file);
 
             var baseName = path.basename(path.dirname(file)),
-                newDir = path.join('desktop.bundles', baseName),
+                newDir = path.join('pages', baseName),
                 newFile = path.join(newDir, baseName + '.bemjson.js');
 
             fs.existsSync(newDir) || fs.mkdirSync(newDir);
             var html = String(fs.readFileSync(file))
                     .replace('<link rel="stylesheet" href="styles.css">', '')
-                    .replace('<link rel="stylesheet" href="material.min.css">', '<link rel="stylesheet" href="' + baseName + '.min.css">'),
+                    .replace('<link rel="stylesheet" href="material.min.css">', '<link rel="stylesheet" href="' + baseName + '.min.css">')
+                    .replace('<script src="../../material.min.js"></script>', '<script src="' + baseName + '.min.js"></script>'),
                 bemjson = html2bemjson(html, { naming : { elem: '__', mod: '--' } });
+
+                bemjson.block = 'page';
+                bemjson = ['<!doctype html>', bemjson];
 
             fs.writeFileSync(
                 newFile,

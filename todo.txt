@@ -1,14 +1,15 @@
   [x] вместо симлинок scss надо записывать новый файл
   [x] import -> mustDeps (+ удалить import из scss)
   [x] src/_*.scss -> src/mdl-*/mdl-*.scss
-  [ ] mdl-resets и mdl-typography -> common.blocks/page/page.deps.js
+  [x] html2bemjson: использовать блок page
+  [x] mdl-resets и mdl-typography -> common.blocks/page/page.deps.js
   [ ] templates/*/styles.css -> desktop.bundles/*/blocks/page/page.scss
   [ ] templates/*/material.scss -> desktop.bundles/*/blocks/mdl-color-definitions/mdl-color-definitions.scss
-  [ ] html2bemjson: использовать блок page
-  [ ] third_party/rAF.js
-  [ ] src/mdlComponentHandler.js
-  [ ] src/images/*.svg ???
+  [ ] _{mega,mini}_footer.scss
   [ ] src/resets/_{h5bp,mobile}.scss
+  [ ] third_party/rAF.js
+  [x] src/mdlComponentHandler.js
+  [ ] src/images/*.svg ???
   [ ] документация/примеры
       [ ] src/snippets/ ???
       [ ] src/*/demo.* ???
