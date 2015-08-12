@@ -9,4 +9,4 @@ npm-debug.log
 # bem
 .bem/cache/
 .enb/tmp/
-pages/*/*.*
+pages/*

@@ -1,5 +1,6 @@
 var path = require('path'),
     fs = require('fs'),
+    mkdirpSync = require('mkdirp').sync,
     glob = require('glob'),
     sass= require('node-sass'),
     stringifyObject = require('stringify-object'),
@@ -19,8 +20,8 @@ glob(
                 newBaseName = 'mdl-' + fileBaseName,
                 newDir = path.join(path.dirname(dirName), newBaseName),
                 newFile = path.join(newDir, newBaseName + '.scss'),
-                fileJS = path.join(dirName, baseName + '.js'),
-                newFileJS = path.join(newDir, newBaseName + '.js');
+                jsFile = path.join(dirName, baseName + '.js'),
+                newJsFile = path.join(newDir, newBaseName + '.js');
 
             if(fileBaseName === baseName) {
                 writeNewScss(file, newBaseName, newDir, newFile);
@@ -50,11 +51,11 @@ glob(
                 }
             }
 
-            if(fs.existsSync(fileJS)) {
-                console.log('? ', fileJS);
-                !fs.existsSync(newFileJS) &&
-                    fs.symlinkSync(path.relative(newDir, fileJS), newFileJS);
-                console.log('! ', newFileJS);
+            if(fs.existsSync(jsFile)) {
+                console.log('? ', jsFile);
+                !fs.existsSync(newJsFile) &&
+                    fs.symlinkSync(path.relative(newDir, jsFile), newJsFile);
+                console.log('! ', newJsFile);
             }
         });
     });
@@ -89,7 +90,7 @@ glob(
 
 function writeNewScss(file, newBaseName, newDir, newFile) {
     console.log('? ', file);
-    fs.existsSync(newDir) || fs.mkdirSync(newDir);
+    mkdirpSync(newDir);
     if(!fs.existsSync(newFile)) {
         var content = String(fs.readFileSync(file)),
             deps = [];
@@ -123,7 +124,7 @@ function writeDeps(newDir, newBaseName, deps) {
 
 function copyFile(file, newDir, newFile, contentTransform) {
     contentTransform || (contentTransform = function(c) { return c; });
-    fs.existsSync(newDir) || fs.mkdirSync(newDir);
+    mkdirpSync(newDir);
     fs.existsSync(newFile) ||
         fs.writeFileSync(
             newFile,
