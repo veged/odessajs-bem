@@ -3,10 +3,10 @@
   [x] src/_*.scss -> src/mdl-*/mdl-*.scss
   [x] html2bemjson: использовать блок page
   [x] mdl-resets и mdl-typography -> common.blocks/page/page.deps.js
-  [ ] templates/*/styles.css -> desktop.bundles/*/blocks/page/page.scss
-  [ ] templates/*/material.scss -> desktop.bundles/*/blocks/mdl-color-definitions/mdl-color-definitions.scss
-  [ ] _{mega,mini}_footer.scss
-  [ ] src/resets/_{h5bp,mobile}.scss
+  [x] _{mega,mini}_footer.scss
+  [x] src/resets/_{h5bp,mobile}.scss
+  [ ] templates/*/styles.css -> pages/*/blocks/page/page.scss
+  [ ] templates/*/material.scss -> pages/*/blocks/mdl-color-definitions/mdl-color-definitions.scss
   [ ] third_party/rAF.js
   [x] src/mdlComponentHandler.js
   [ ] src/images/*.svg ???

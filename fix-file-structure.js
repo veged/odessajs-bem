@@ -3,7 +3,9 @@ var path = require('path'),
     glob = require('glob'),
     sass= require('node-sass'),
     stringifyObject = require('stringify-object'),
-    decamelize = require('decamelize');
+    decamelize = require('decamelize'),
+    vm = require('vm'),
+    _ = require('lodash/array');
 
 glob(
     'libs/material-design-lite/src/*/_*.scss',
@@ -13,16 +15,39 @@ glob(
         files.forEach(function(file) {
             var dirName = path.dirname(file),
                 baseName = path.basename(dirName),
-                newBaseName = 'mdl-' + baseName,
+                fileBaseName = path.basename(file, '.scss').substr(1).replace('_', '-'),
+                newBaseName = 'mdl-' + fileBaseName,
                 newDir = path.join(path.dirname(dirName), newBaseName),
                 newFile = path.join(newDir, newBaseName + '.scss'),
                 fileJS = path.join(dirName, baseName + '.js'),
                 newFileJS = path.join(newDir, newBaseName + '.js');
 
-            if(path.basename(file, '.scss').substr(1) === path.basename(dirName)) {
+            if(fileBaseName === baseName) {
                 writeNewScss(file, newBaseName, newDir, newFile);
             } else {
-                copyFile(file, newDir, path.join(newDir, path.basename(file)));
+                if(baseName === 'resets') {
+                    newBaseName = 'mdl-' + baseName;
+                    newDir = path.join(path.dirname(dirName), newBaseName);
+                    var deps = [];
+
+                    copyFile(
+                        file,
+                        newDir,
+                        path.join(newDir, path.basename(file)),
+                        function(content) {
+                            return content.replace(
+                                /@import "\.\.\/([^\/]+?)";\n/g,
+                                function(_, dep) {
+                                    deps.push('mdl-' + dep);
+                                    return '';
+                                }
+                            );
+                        });
+
+                    writeDeps(newDir, newBaseName, deps);
+                } else {
+                    writeNewScss(file, newBaseName, newDir, newFile);
+                }
             }
 
             if(fs.existsSync(fileJS)) {
@@ -76,21 +101,31 @@ function writeNewScss(file, newBaseName, newDir, newFile) {
                     deps.push('mdl-' + dep);
                     return '';
                 })
-                .replace(/@import "(\.\.\/[^\/]+)\/([^\/]+?)";\n/g, '@import "$1/_$2.scss";\n')
+                .replace(/@import "\.\.\/[^\/]+\/([^\/]+?)";\n/g, '@import "_$1.scss";\n')
         );
 
-        deps.length && fs.writeFileSync(
-            path.join(newDir, newBaseName + '.deps.js'),
-            '(' + stringifyObject(
-                { mustDeps : deps },
-                { indent : '    ' }
-            ) +')'
-        )
+        writeDeps(newDir, newBaseName, deps);
     }
     console.log('! ', newFile);
 }
 
-function copyFile(file, newDir, newFile) {
+function writeDeps(newDir, newBaseName, deps) {
+    var newFile = path.join(newDir, newBaseName + '.deps.js'),
+        depsObj = fs.existsSync(newFile) ?
+            vm.runInNewContext(String(fs.readFileSync(newFile))) :
+            { mustDeps : [] };
+
+    depsObj.mustDeps = _.uniq(depsObj.mustDeps.concat(deps));
+
+    depsObj.mustDeps.length &&
+        fs.writeFileSync(newFile, '(' + stringifyObject( depsObj, { indent : '    ' }) +')');
+}
+
+function copyFile(file, newDir, newFile, contentTransform) {
+    contentTransform || (contentTransform = function(c) { return c; });
     fs.existsSync(newDir) || fs.mkdirSync(newDir);
-    fs.existsSync(newFile) || fs.writeFileSync(newFile, fs.readFileSync(file));
+    fs.existsSync(newFile) ||
+        fs.writeFileSync(
+            newFile,
+            contentTransform(String(fs.readFileSync(file))));
 }

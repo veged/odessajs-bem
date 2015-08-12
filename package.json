@@ -16,6 +16,7 @@
     "enb-sass": "^1.0.1",
     "glob": "^5.0.14",
     "html2bemjson": "^1.4.0",
+    "lodash": "^3.10.1",
     "stringify-object": "^2.3.0"
   },
   "devDependencies": {
