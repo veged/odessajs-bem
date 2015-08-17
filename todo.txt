@@ -5,10 +5,15 @@
   [x] mdl-resets и mdl-typography -> common.blocks/page/page.deps.js
   [x] _{mega,mini}_footer.scss
   [x] src/resets/_{h5bp,mobile}.scss
+  [x] palette -> mdl-color
+  [ ] ripple, mdl-js-ripple-effect
+  [ ] mdl-mega-footer--* -> mdl-mega-footer__*
   [x] templates/*/styles.css -> pages/*/blocks/page/page.scss
   [x] templates/*/material.scss -> pages/*/blocks/mdl-color-definitions/mdl-color-definitions.scss
   [ ] third_party/rAF.js
+  [ ] mdl-js-*
   [x] src/mdlComponentHandler.js
+  [ ] animation ???
   [ ] src/images/*.svg ???
   [ ] документация/примеры
       [ ] src/snippets/ ???

@@ -3,10 +3,7 @@ var path = require('path'),
     mkdirpSync = require('mkdirp').sync,
     glob = require('glob'),
     html2bemjson = require('html2bemjson').convert,
-    _bemjson2deps = require('bemjson-to-deps'),
-    bemjson2deps = function(bemjson) {
-        return _bemjson2deps.denormalizeDeps(_bemjson2deps.getEntities(bemjson));
-    },
+    bemjson2deps = require('bemjson-to-deps').convert,
     stringifyObject = require('stringify-object');
 
 glob(
@@ -29,12 +26,12 @@ glob(
                     .replace('<script src="../../material.min.js"></script>', '<script src="' + baseName + '.min.js"></script>'),
                 bemjson = html2bemjson(html, { naming : { elem: '__', mod: '--' } });
 
-                bemjson.block = 'page';
+            bemjson[2].block = 'page';
 
             fs.writeFileSync(
                 newFile,
                 '(' + stringifyObject(
-                    ['<!doctype html>', bemjson],
+                    bemjson,
                     { indent : '    ' }
                 ) + ')'
             );
