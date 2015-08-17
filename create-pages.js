@@ -23,7 +23,8 @@ glob(
             var html = String(fs.readFileSync(file))
                     .replace('<link rel="stylesheet" href="styles.css">', '')
                     .replace('<link rel="stylesheet" href="material.min.css">', '<link rel="stylesheet" href="' + baseName + '.min.css">')
-                    .replace('<script src="../../material.min.js"></script>', '<script src="' + baseName + '.min.js"></script>'),
+                    .replace('<script src="../../material.min.js"></script>', '<script src="' + baseName + '.min.js"></script>')
+                    .replace(/mdl-mega-footer--/g, 'mdl-mega-footer__'),
                 bemjson = html2bemjson(html, { naming : { elem: '__', mod: '--' } });
 
             bemjson[2].block = 'page';

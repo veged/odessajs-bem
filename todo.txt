@@ -7,7 +7,7 @@
   [x] src/resets/_{h5bp,mobile}.scss
   [x] palette -> mdl-color
   [ ] ripple, mdl-js-ripple-effect
-  [ ] mdl-mega-footer--* -> mdl-mega-footer__*
+  [x] mdl-mega-footer--* -> mdl-mega-footer__*
   [x] templates/*/styles.css -> pages/*/blocks/page/page.scss
   [x] templates/*/material.scss -> pages/*/blocks/mdl-color-definitions/mdl-color-definitions.scss
   [ ] third_party/rAF.js
