@@ -10,13 +10,13 @@
   [x] templates/*/styles.css -> pages/*/blocks/page/page.scss
   [x] templates/*/material.scss -> pages/*/blocks/mdl-color-definitions/mdl-color-definitions.scss
   [x] src/mdlComponentHandler.js
-  [ ] third_party/rAF.js
-  [ ] mdl-js-*
-  [ ] ripple, mdl-js-ripple-effect
+  [ ] автоматически генерировать *.bemhtml.js и чистить от html-тегов *.bemjson.js
+  [ ] third_party/rAF.js ???
+  [ ] ripple, mdl-js-ripple-effect ???
   [ ] animation ???
   [ ] src/images/*.svg ???
   [ ] документация/примеры
+      [ ] src/*/README.md -> src/mdl-*/*.en.md
       [ ] src/snippets/ ???
       [ ] src/*/demo.* ???
-      [ ] src/*/README.md ???
 
