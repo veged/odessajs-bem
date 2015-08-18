@@ -21,10 +21,7 @@ var techs = {
         htmlFromBemjson: require('enb-bemxjst-2/techs/html-from-bemjson')
     },
     enbBemTechs = require('enb-bem-techs'),
-    levels = [
-        { path: 'libs/material-design-lite/src', check: false },
-        'blocks'
-    ];
+    levels = ['blocks'];
 
 module.exports = function(config) {
     var isProd = process.env.YENV === 'production';

@@ -38,7 +38,8 @@
     "start": "enb server",
     "postinstall": "npm run deps",
     "deps": "bower i",
-    "build": "node fix-file-structure.js && node create-pages.js && enb make"
+    "clean": "rm -rf blocks/* pages/*",
+    "build": "node fix-mdl.js && enb make"
   },
   "private": true
 }
