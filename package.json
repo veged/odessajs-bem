@@ -37,7 +37,8 @@
   "scripts": {
     "start": "enb server",
     "postinstall": "npm run deps",
-    "deps": "bower i"
+    "deps": "bower i",
+    "build": "node fix-file-structure.js && node create-pages.js && enb make"
   },
   "private": true
 }

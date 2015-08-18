@@ -6,13 +6,13 @@
   [x] _{mega,mini}_footer.scss
   [x] src/resets/_{h5bp,mobile}.scss
   [x] palette -> mdl-color
-  [ ] ripple, mdl-js-ripple-effect
   [x] mdl-mega-footer--* -> mdl-mega-footer__*
   [x] templates/*/styles.css -> pages/*/blocks/page/page.scss
   [x] templates/*/material.scss -> pages/*/blocks/mdl-color-definitions/mdl-color-definitions.scss
+  [x] src/mdlComponentHandler.js
   [ ] third_party/rAF.js
   [ ] mdl-js-*
-  [x] src/mdlComponentHandler.js
+  [ ] ripple, mdl-js-ripple-effect
   [ ] animation ???
   [ ] src/images/*.svg ???
   [ ] документация/примеры
