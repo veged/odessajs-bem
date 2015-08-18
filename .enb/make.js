@@ -50,7 +50,7 @@ module.exports = function(config) {
             // [techs.bemtree, { devMode: process.env.BEMTREE_ENV === 'development' }],
 
             // bemhtml
-            [techs.bemhtml, { devMode: process.env.BEMHTML_ENV === 'development' }],
+            [techs.bemhtml, { naming: { elem: '__', mod: '--' } }],
             [techs.htmlFromBemjson],
 
             // client bemhtml
@@ -71,7 +71,7 @@ module.exports = function(config) {
             [techs.bemhtml, {
                 target: '?.browser.bemhtml.js',
                 filesTarget: '?.bemhtml.files',
-                devMode: process.env.BEMHTML_ENV === 'development'
+                naming: { elem: '__', mod: '--' }
             }],
 
             // js
