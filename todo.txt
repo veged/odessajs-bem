@@ -16,7 +16,7 @@
   [ ] animation ???
   [ ] src/images/*.svg ???
   [ ] документация/примеры
-      [ ] src/*/README.md -> src/mdl-*/*.en.md
+      [x] src/*/README.md -> src/mdl-*/*.en.md
       [ ] src/snippets/ ???
       [ ] src/*/demo.* ???
 

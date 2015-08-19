@@ -48,6 +48,11 @@ forEachMDLFile(['src', '*', '_*.scss'], function(file) {
         pathJoin(dirName, baseName + '.js'),
         newDir,
         newBaseName + '.js');
+
+    copyFile(
+        pathJoin(dirName, 'README.md'),
+        newDir,
+        newBaseName + '.en.md');
 });
 
 // process additional partials as blocks
