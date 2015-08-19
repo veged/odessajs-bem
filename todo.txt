@@ -10,7 +10,7 @@
   [x] templates/*/styles.css -> pages/*/blocks/page/page.scss
   [x] templates/*/material.scss -> pages/*/blocks/mdl-color-definitions/mdl-color-definitions.scss
   [x] src/mdlComponentHandler.js
-  [ ] автоматически генерировать *.bemhtml.js и чистить от html-тегов *.bemjson.js
+  [x] автоматически генерировать *.bemhtml.js и чистить от html-тегов *.bemjson.js
   [ ] third_party/rAF.js ???
   [ ] ripple, mdl-js-ripple-effect ???
   [ ] animation ???

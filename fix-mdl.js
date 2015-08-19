@@ -2,7 +2,8 @@ var path = require('path'),
     pathJoin = path.join,
     dirname = path.dirname,
     basename = path.basename,
-    decamelize = require('decamelize');
+    decamelize = require('decamelize'),
+    vow = require('vow');
 
 setImmediate(function() {
 
@@ -73,52 +74,84 @@ forEachMDLFile(['src', 'mdlComponentHandler.js'], function(file) {
 writeDeps(pathJoin('blocks', 'mdl-page'), 'mdl-page', ['mdl-resets', 'mdl-typography', 'mdl-component-handler']);
 
 // process templates as pages
+var bemhtmls = {},
+    bemhtmlsDefer = vow.defer();
+
 forEachMDLFile(['templates', '*', 'index.html'], function(file) {
     var dirName = dirname(file),
         baseName = basename(dirName),
-        newDir = pathJoin('pages', baseName),
-        bemjson;
+        newDir = pathJoin('pages', baseName);
 
     copyFile(
         file,
         newDir,
         baseName + '.bemjson.js',
         function(html) {
-            bemjson = html2bemjson(html
-                .replace(
+            var bemjson = html2bemjson(html
+                .replace( // fix path for page JS
                     '<script src="$$hosted_libs_prefix$$/$$version$$/material.min.js"></script>',
                     '<script src="' + baseName + '.min.js"></script>')
-                .replace(
+                .replace( // fix path for page CSS
                     /<link rel="stylesheet" href="\$\$hosted_libs_prefix\$\$\/\$\$version\$\$\/material(\.[^.]+)?\.min\.css">/,
                     '<link rel="stylesheet" href="' + baseName + '.min.css">')
-                .replace('<link rel="stylesheet" href="styles.css">', '')
-                .replace(/mdl-mega-footer--/g, 'mdl-mega-footer__'));
+                .replace('<link rel="stylesheet" href="styles.css">', '') // hack additional styles since they gonna be block definition
+                .replace(/mdl-(mega|mini)-footer--/g, 'mdl-$1-footer__')); // hack incorrect usage of modifier instead of element
 
             bemjson[2].block = 'mdl-page';
 
-            return stringifyObject(bemjson);
-        });
+            // accumulate stats for BEMHTML templates based on all pages
+            iterateBEMJSON(bemjson, function(item, ctx) {
+                if(item.block || item.elem) {
+                    var tag = item.tag || 'div',
+                        block = item.block || ctx.block,
+                        blockBemhtml = def(bemhtmls, block),
+                        bemhtmlStats;
 
-    // converts color definitions as block on page blocks level
-    copyFile(
-        pathJoin(dirName, 'material.scss'),
-        pathJoin(newDir, 'blocks', 'mdl-color-definitions'),
-        'mdl-color-definitions.scss',
-        function(content) {
-            return content.replace(/@import [^;]+;\n/g, '');
-        });
+                    if(item.elem) {
+                        var elemsBemhtml = def(blockBemhtml, '__'),
+                            elem = item.elem;
 
-    // convert styles definitions as block definition on page level
-    var newStylesDir = pathJoin(newDir, 'blocks', 'mdl-page');
-    copyFile(
-        pathJoin(dirName, 'styles.css'),
-        newStylesDir,
-        'mdl-page.scss',
-        function(content) {
-            writeDeps(newStylesDir, 'mdl-page', bemjson2deps(bemjson)); // hack for proper order of page level definitions
-            return content;
+                        itemBemhtml = def(elemsBemhtml, elem);
+                    } else if(item.block) {
+                        itemBemhtml = blockBemhtml;
+                    }
+
+                    if(itemBemhtml) {
+                        var itemBemhtmlTagStats = def(def(itemBemhtml, 'tag'), tag, [0, []]);
+                        itemBemhtmlTagStats[0]++;
+                        itemBemhtmlTagStats[1].push(item);
+                    }
+                }
+            });
+
+            return bemhtmlsDefer.promise().then(function() {
+                // converts color definitions as block on page blocks level
+                copyFile(
+                    pathJoin(dirName, 'material.scss'),
+                    pathJoin(newDir, 'blocks', 'mdl-color-definitions'),
+                    'mdl-color-definitions.scss',
+                    function(content) {
+                        return content.replace(/@import [^;]+;\n/g, '');
+                    });
+
+                // convert styles definitions as block definition on page level
+                var newStylesDir = pathJoin(newDir, 'blocks', 'mdl-page');
+                copyFile(
+                    pathJoin(dirName, 'styles.css'),
+                    newStylesDir,
+                    'mdl-page.scss',
+                    function(content) {
+                        writeDeps(newStylesDir, 'mdl-page', bemjson2deps(bemjson)); // hack for proper order of page level definitions
+                        return content;
+                    });
+
+                return beautifyBemjson(stringifyObject(bemjson));
+            });
         });
 });
+
+// generate BEMHTML templates based on stats accumulated previously
+writeBemhtmls(bemhtmls, bemhtmlsDefer);
 
 });
 
@@ -144,11 +177,23 @@ function html2bemjson(html) {
     return _html2bemjson(html, { naming : { elem: '__', mod: '--' } });
 }
 
-var bemjson2deps = require('bemjson-to-deps').convert;
+var _bemjson2deps = require('bemjson-to-deps').convert;
+function cloneJSON(json) {
+    return JSON.parse(JSON.stringify(json));
+}
+function bemjson2deps(bemjson) {
+    return _bemjson2deps(cloneJSON(bemjson))
+}
 
 var _stringifyObject = require('stringify-object');
 function stringifyObject(obj) {
     return '(' + _stringifyObject(obj, { indent : '    ' }) + ')';
+}
+function beautifyBemjson(str) {
+    return str
+        .replace(/{\n\s+([^:]+: \S+)\n\s+}/g, '{ $1 }')
+        .replace(/{\n\s+(block: \S+)\n\s+(elem: \S+)\n\s+}/g, '{ $1 $2 }')
+        .replace(/{\n\s+(block: \S+)\n\s+(mods: [^\n]+)\n\s+}/g, '{ $1 $2 }');
 }
 
 function writeNewScss(file, newBaseName, newDir, newFile, nonBlockNaming) {
@@ -201,11 +246,83 @@ function copyFile(file, newDir, newFile, contentTransform) {
 
         newFile = pathJoin(newDir, newFile);
         if(!fs.existsSync(newFile)) {
-            writeFile(
-                newFile,
-                (contentTransform || idFn)(readFile(file)));
-
-            console.log('! ', newFile);
+            vow.when((contentTransform || idFn)(readFile(file)), function(content) {
+                writeFile(newFile, content);
+                console.log('! ', newFile);
+            });
         }
     }
+}
+
+function isSimple(obj) {
+    var t = typeof obj;
+    return t === 'string' || t === 'number' || t === 'boolean';
+}
+function iterateBEMJSON(bemjson, fn, ctx) {
+    if(bemjson && !isSimple(bemjson))
+        if(Array.isArray(bemjson)) {
+            var i = 0, l = bemjson.length;
+            while(i < l) iterateBEMJSON(bemjson[i++], fn, ctx);
+        } else {
+            fn(bemjson, ctx);
+            iterateBEMJSON(
+                bemjson.content,
+                fn,
+                {
+                    block : bemjson.block || ctx.block,
+                    mods: bemjson.mods || (bemjson.block? undefined : ctx.mods)
+                });
+        }
+    return bemjson;
+}
+
+function def(obj, key, val) {
+    arguments.length === 2 && (val = {});
+    return key in obj ? obj[key] : obj[key] = val;
+}
+
+var _ = require('lodash');
+
+function buildBemhtmlTagString(itemBemhtml) {
+    if(!itemBemhtml.tag) return '';
+
+    var itemBemhtmlTags = _.pairs(itemBemhtml.tag),
+        mostPopularTag = _.max(itemBemhtmlTags, function(i) { return i[1][0]; }),
+        itemTagString = "'" + mostPopularTag[0] + "'";
+
+    itemBemhtmlTags.length > 1 && (itemTagString = 'function() { return this.ctx.tag || ' + itemTagString + '; }')
+
+    mostPopularTag[1][1].forEach(function(item) { delete item.tag; });
+
+    return 'tag()(' + itemTagString + ')';
+}
+
+function writeBemhtmls(bemhtmls, bemhtmlsDefer) {
+    _.forOwn(bemhtmls, function(blockBemhtml, block) {
+        var bemhtmlString = 'block(\'' + block + '\')',
+            elemsBemhtmlTags = blockBemhtml.__;
+
+        delete blockBemhtml.__;
+
+        var bemhtmlBlockTagString = buildBemhtmlTagString(blockBemhtml);
+
+        if(elemsBemhtmlTags) {
+            var subBemhtmlStrings = _.map(elemsBemhtmlTags, function(elemBemhtml, elem) {
+                return 'elem(\'' + elem + '\')' +
+                    '.' + buildBemhtmlTagString(elemBemhtml);
+            });
+            bemhtmlBlockTagString && subBemhtmlStrings.unshift(bemhtmlBlockTagString);
+            bemhtmlString += '(\n    ' + subBemhtmlStrings.join(',\n    ') + '\n)';
+        } else {
+            bemhtmlBlockTagString && (bemhtmlString += '.' + bemhtmlBlockTagString);
+        }
+
+        var newDir = pathJoin('blocks', block),
+            newFile = block + '.bemhtml.js';
+        mkdirpSync(newDir);
+        writeFile(pathJoin(newDir, newFile), bemhtmlString);
+        console.log('! ', newFile);
+    });
+
+    bemhtmlsDefer.resolve();
 }
