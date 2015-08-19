@@ -125,6 +125,7 @@ forEachMDLFile(['templates', '*', 'index.html'], function(file) {
                         var itemBemhtmlTagStats = def(def(itemBemhtml, 'tag'), tag, [0, []]);
                         itemBemhtmlTagStats[0]++;
                         itemBemhtmlTagStats[1].push(item);
+                        def(blockBemhtml, '.pages', []).push(newDir);
                     }
                 }
             });
@@ -299,34 +300,55 @@ function buildBemhtmlTagString(itemBemhtml) {
 
     mostPopularTag[1][1].forEach(function(item) { delete item.tag; });
 
-    return 'tag()(' + itemTagString + ')';
+    return itemTagString === "'div'" ? '' : 'tag()(' + itemTagString + ')';
+}
+
+function writeBemhtml(newDir, newFile, content) {
+    mkdirpSync(newDir);
+    newFile = pathJoin(newDir, newFile);
+    writeFile(newFile, content);
+    console.log('! ', newFile);
 }
 
 function writeBemhtmls(bemhtmls, bemhtmlsDefer) {
     _.forOwn(bemhtmls, function(blockBemhtml, block) {
         var bemhtmlString = 'block(\'' + block + '\')',
-            elemsBemhtmlTags = blockBemhtml.__;
+            elemsBemhtmlTags = blockBemhtml.__,
+            pages = blockBemhtml['.pages'];
 
         delete blockBemhtml.__;
+        delete blockBemhtml['.pages'];
 
         var bemhtmlBlockTagString = buildBemhtmlTagString(blockBemhtml);
 
         if(elemsBemhtmlTags) {
-            var subBemhtmlStrings = _.map(elemsBemhtmlTags, function(elemBemhtml, elem) {
-                return 'elem(\'' + elem + '\')' +
-                    '.' + buildBemhtmlTagString(elemBemhtml);
+            var subBemhtmlStrings = [];
+            _.forOwn(elemsBemhtmlTags, function(elemBemhtml, elem) {
+                var bemhtmlElemTagString = buildBemhtmlTagString(elemBemhtml);
+                bemhtmlElemTagString &&
+                    subBemhtmlStrings.push(
+                        'elem(\'' + elem + '\')' +
+                        '.' + bemhtmlElemTagString);
             });
             bemhtmlBlockTagString && subBemhtmlStrings.unshift(bemhtmlBlockTagString);
-            bemhtmlString += '(\n    ' + subBemhtmlStrings.join(',\n    ') + '\n)';
+            subBemhtmlStrings.length ?
+                bemhtmlString += '(\n    ' + subBemhtmlStrings.join(',\n    ') + '\n)' :
+                bemhtmlString = '';
         } else {
-            bemhtmlBlockTagString && (bemhtmlString += '.' + bemhtmlBlockTagString);
+            bemhtmlBlockTagString ?
+                bemhtmlString += '.' + bemhtmlBlockTagString :
+                bemhtmlString = '';
         }
 
-        var newDir = pathJoin('blocks', block),
-            newFile = block + '.bemhtml.js';
-        mkdirpSync(newDir);
-        writeFile(pathJoin(newDir, newFile), bemhtmlString);
-        console.log('! ', newFile);
+        if(bemhtmlString) {
+            var newDir = pathJoin('blocks', block),
+                newFile = block + '.bemhtml.js';
+            block.indexOf('mdl-')?
+                pages.forEach(function(page) {
+                    writeBemhtml(pathJoin(page, newDir), newFile, bemhtmlString);
+                }) :
+                writeBemhtml(newDir, newFile, bemhtmlString);
+        }
     });
 
     bemhtmlsDefer.resolve();
