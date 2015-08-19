@@ -12,6 +12,7 @@ var techs = {
         cssAutoprefixer: require('enb-autoprefixer/techs/css-autoprefixer'),
 
         // js
+        nodeJs: require('enb-diverse-js/techs/node-js'),
         browserJs: require('enb-diverse-js/techs/browser-js'),
 
         // bemtree
@@ -35,17 +36,23 @@ module.exports = function(config) {
         ]);
 
         STAGE >= 5 ?
-            nodeConfig.addTechs([
-                [techs.fileProvider, { target: '?.bemjson.js' }],
-                [techs.htmlFromBemjson]
-            ]) :
+            (STAGE >= 7 ?
+                nodeConfig.addTechs([
+                    [techs.fileProvider, { target: '?.bemdecl.js' }],
+                ]) :
+                nodeConfig.addTechs([
+                    [techs.fileProvider, { target: '?.bemjson.js' }],
+                    [techs.htmlFromBemjson],
+                    [enbBemTechs.bemjsonToBemdecl]
+                ])
+            ) :
             nodeConfig.addTechs([
                 [techs.fileProvider, { target: '?.html' }],
-                [techs.htmlToBemjson]
+                [techs.htmlToBemjson],
+                [enbBemTechs.bemjsonToBemdecl]
             ]);
 
         nodeConfig.addTechs([
-            [enbBemTechs.bemjsonToBemdecl],
             [enbBemTechs.deps],
             [enbBemTechs.files],
 
@@ -85,6 +92,7 @@ module.exports = function(config) {
             }],
 
             // js
+            [techs.nodeJs],
             [techs.browserJs],
             [techs.fileMerge, {
                 target: '?.js',
@@ -96,6 +104,6 @@ module.exports = function(config) {
             [techs.borschik, { sourceTarget: '?.css', destTarget: '?.min.css', tech: 'cleancss', freeze: true, minify: isProd }]
         ]);
 
-        nodeConfig.addTargets([/* '?.bemtree.js', */ '?.html', '?.min.css', '?.min.js']);
+        nodeConfig.addTargets(['?.node.js', '?.bemhtml.js', '?.min.css', '?.min.js']);
     });
 };
