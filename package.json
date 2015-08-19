@@ -39,7 +39,7 @@
     "postinstall": "npm run deps",
     "deps": "bower i",
     "clean": "rm -rf blocks/* pages/*",
-    "build": "node fix-mdl.js && enb make"
+    "build": "npm run clean && node fix-mdl.js && enb make"
   },
   "private": true
 }
