@@ -11,3 +11,6 @@ npm-debug.log
 .enb/tmp/
 pages/*
 blocks/*
+!blocks/server
+!pages/*/*.bemdecl.js
+pages/*/*bemhtml.bemdecl.js
