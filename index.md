@@ -39,6 +39,7 @@ layout: default
 * [Начало](https://ru.bem.info/method/definitions/)
 * [Вебинар с самых азов](https://ru.bem.info/talks/beminar-css-2015/)
 * [Видео с прошлого выступления на OdessaJS](https://ru.bem.info/talks/bem-odessajs-2014/)
+* [Форум](https://ru.bem.info/forum/)
 
 ~~~markup
                       __
