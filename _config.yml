@@ -1,6 +1,6 @@
 safe: true
 permalink: /:title.html
-exclude: [ assets ]
+exclude: [ assets, node_modules ]
 markdown: kramdown
 
 default_theme: yandex
@@ -12,15 +12,15 @@ kramdown:
   enable_coderay: false
 
 presentation:
-    title: Название темы
-    service: Сервис
-    nda: true
+    title: "Мастер-класс:<br/>строим сервис по БЭМ"
+    service: БЭМ
+    nda: false
 
 author:
-    name: Автор
-    position: Должность
+    name: Сергей Бережной
+    position: "руководитель отдела<br/>разработки поисковых интерфейсов"
     company:
         name: Яндекс
         url:  http://yandex.ru/
 
-progress: true
+progress: false

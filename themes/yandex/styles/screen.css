@@ -743,7 +743,7 @@ body .slide:first-of-type h2
 
 .slide.shout
 {
-    background: #fff;
+    background: #fff url('../../../pictures/Odesa_JS_logo_big.png') 98% 2% no-repeat;
 }
 
 .slide.shout h2
