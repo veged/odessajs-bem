@@ -3,7 +3,8 @@ var path = require('path'),
     dirname = path.dirname,
     basename = path.basename,
     decamelize = require('decamelize'),
-    vow = require('vow');
+    vow = require('vow'),
+    STAGE = Number(process.env.STAGE) || Infinity;
 
 setImmediate(function() {
 
@@ -38,7 +39,7 @@ forEachMDLFile(['src', '*', '_*.scss'], function(file) {
                     );
                 });
 
-            writeDeps(newDir, newBaseName, deps);
+            STAGE >= 3 && writeDeps(newDir, newBaseName, deps);
         } else { // hack for other files with names different from block name (i.e. footer)
             writeNewScss(file, newBaseName, newDir, newFile);
         }
@@ -49,14 +50,14 @@ forEachMDLFile(['src', '*', '_*.scss'], function(file) {
         newDir,
         newBaseName + '.js');
 
-    copyFile(
+    STAGE >= 6 && copyFile(
         pathJoin(dirName, 'README.md'),
         newDir,
         newBaseName + '.en.md');
 });
 
 // process additional partials as blocks
-forEachMDLFile(['src', '_*.scss'], function(file) {
+STAGE >= 2 && forEachMDLFile(['src', '_*.scss'], function(file) {
     var newBaseName = 'mdl-' + basename(file, '.scss').substr(1);
     writeNewScss(
         file,
@@ -67,7 +68,7 @@ forEachMDLFile(['src', '_*.scss'], function(file) {
 });
 
 // process mdlComponentHandler.js as block
-forEachMDLFile(['src', 'mdlComponentHandler.js'], function(file) {
+STAGE >= 2 && forEachMDLFile(['src', 'mdlComponentHandler.js'], function(file) {
     var newBaseName = decamelize(basename(file, '.js'), '-');
     copyFile(
         file,
@@ -76,7 +77,7 @@ forEachMDLFile(['src', 'mdlComponentHandler.js'], function(file) {
 });
 
 // make page block for proper order of deps
-writeDeps(pathJoin('blocks', 'mdl-page'), 'mdl-page', ['mdl-resets', 'mdl-typography', 'mdl-component-handler']);
+STAGE >= 3 && writeDeps(pathJoin('blocks', 'mdl-page'), 'mdl-page', ['mdl-resets', 'mdl-typography', 'mdl-component-handler']);
 
 // process templates as pages
 var bemhtmls = {},
@@ -90,9 +91,9 @@ forEachMDLFile(['templates', '*', 'index.html'], function(file) {
     copyFile(
         file,
         newDir,
-        baseName + '.bemjson.js',
+        baseName + (STAGE >= 5 ? '.bemjson.js' : '.html'),
         function(html) {
-            var bemjson = html2bemjson(html
+            html = html
                 .replace( // fix path for page JS
                     '<script src="$$hosted_libs_prefix$$/$$version$$/material.min.js"></script>',
                     '<script src="' + baseName + '.min.js"></script>')
@@ -102,63 +103,54 @@ forEachMDLFile(['templates', '*', 'index.html'], function(file) {
                 .replace('<link rel="stylesheet" href="styles.css">', '') // hack additional styles since they gonna be block definition
                 .replace( // add mdl-page block
                     '<html ',
-                    '<html class="mdl-page" ' + baseName + '.min.js"></script>')
-                .replace(/mdl-(mega|mini)-footer--/g, 'mdl-$1-footer__')); // hack incorrect usage of modifier instead of element
+                    '<html class="mdl-page" ')
+                .replace(/mdl-(mega|mini)-footer--/g, 'mdl-$1-footer__'); // hack incorrect usage of modifier instead of element
 
-            // accumulate stats for BEMHTML templates based on all pages
-            iterateBEMJSON(bemjson, function(item, ctx) {
-                if(item.block || item.elem) {
-                    var tag = item.tag || 'div',
-                        block = item.block || ctx.block,
-                        blockBemhtml = def(bemhtmls, block),
-                        bemhtmlStats;
+            var bemjson = html2bemjson(html);
 
-                    if(item.elem) {
-                        var elemsBemhtml = def(blockBemhtml, '__'),
-                            elem = item.elem;
+            if(STAGE >= 5) {
+                // accumulate stats for BEMHTML templates based on all pages
+                iterateBEMJSON(bemjson, function(item, ctx) {
+                    if(item.block || item.elem) {
+                        var tag = item.tag || 'div',
+                            block = item.block || ctx.block,
+                            blockBemhtml = def(bemhtmls, block),
+                            bemhtmlStats;
 
-                        itemBemhtml = def(elemsBemhtml, elem);
-                    } else if(item.block) {
-                        itemBemhtml = blockBemhtml;
+                        if(item.elem) {
+                            var elemsBemhtml = def(blockBemhtml, '__'),
+                                elem = item.elem;
+
+                            itemBemhtml = def(elemsBemhtml, elem);
+                        } else if(item.block) {
+                            itemBemhtml = blockBemhtml;
+                        }
+
+                        if(itemBemhtml) {
+                            var itemBemhtmlTagStats = def(def(itemBemhtml, 'tag'), tag, [0, []]);
+                            itemBemhtmlTagStats[0]++;
+                            itemBemhtmlTagStats[1].push(item);
+                            def(blockBemhtml, '.pages', []).push(newDir);
+                        }
                     }
+                });
 
-                    if(itemBemhtml) {
-                        var itemBemhtmlTagStats = def(def(itemBemhtml, 'tag'), tag, [0, []]);
-                        itemBemhtmlTagStats[0]++;
-                        itemBemhtmlTagStats[1].push(item);
-                        def(blockBemhtml, '.pages', []).push(newDir);
-                    }
-                }
-            });
+                return bemhtmlsDefer.promise().then(function() {
+                    // convert styles definitions as block definition on page level
+                    writePageStyles(dirName, newDir, bemjson);
 
-            return bemhtmlsDefer.promise().then(function() {
-                // converts color definitions as block on page blocks level
-                copyFile(
-                    pathJoin(dirName, 'material.scss'),
-                    pathJoin(newDir, 'blocks', 'mdl-color-definitions'),
-                    'mdl-color-definitions.scss',
-                    function(content) {
-                        return content.replace(/@import [^;]+;\n/g, '');
-                    });
-
+                    return beautifyBemjson(stringifyObject(bemjson));
+                });
+            } else {
                 // convert styles definitions as block definition on page level
-                var newStylesDir = pathJoin(newDir, 'blocks', 'mdl-page');
-                copyFile(
-                    pathJoin(dirName, 'styles.css'),
-                    newStylesDir,
-                    'mdl-page.scss',
-                    function(content) {
-                        writeDeps(newStylesDir, 'mdl-page', bemjson2deps(bemjson)); // hack for proper order of page level definitions
-                        return content;
-                    });
-
-                return beautifyBemjson(stringifyObject(bemjson));
-            });
+                writePageStyles(dirName, newDir, bemjson);
+                return html;
+            }
         });
 });
 
 // generate BEMHTML templates based on stats accumulated previously
-writeBemhtmls(bemhtmls, bemhtmlsDefer);
+STAGE >= 5 && writeBemhtmls(bemhtmls, bemhtmlsDefer);
 
 });
 
@@ -219,8 +211,20 @@ function writeNewScss(file, newBaseName, newDir, newFile, nonBlockNaming) {
                 return '';
             });
 
-            writeDeps(newDir, newBaseName, deps);
+            STAGE >= 3 && writeDeps(newDir, newBaseName, deps);
 
+            return content;
+        });
+}
+
+function writePageStyles(dirName, newDir, bemjson) {
+    var newStylesDir = pathJoin(newDir, 'blocks', 'mdl-page');
+    copyFile(
+        pathJoin(dirName, 'styles.css'),
+        newStylesDir,
+        'mdl-page.scss',
+        function(content) {
+            STAGE >= 3 && writeDeps(newStylesDir, 'mdl-page', bemjson2deps(bemjson)); // hack for proper order of page level definitions
             return content;
         });
 }

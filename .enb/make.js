@@ -2,6 +2,7 @@ var techs = {
         // essential
         fileProvider: require('enb/techs/file-provider'),
         fileMerge: require('enb/techs/file-merge'),
+        htmlToBemjson: require('enb-html-to-bemjson/techs/html-to-bemjson'),
 
         // optimization
         borschik: require('enb-borschik/techs/borschik'),
@@ -21,7 +22,8 @@ var techs = {
         htmlFromBemjson: require('enb-bemxjst-2/techs/html-from-bemjson')
     },
     enbBemTechs = require('enb-bem-techs'),
-    levels = ['blocks'];
+    levels = ['blocks'],
+    STAGE = Number(process.env.STAGE) || Infinity;
 
 module.exports = function(config) {
     var isProd = process.env.YENV === 'production';
@@ -29,8 +31,20 @@ module.exports = function(config) {
     config.nodes('pages/*', function(nodeConfig) {
         nodeConfig.addTechs([
             // essential
-            [enbBemTechs.levels, { levels: levels }],
-            [techs.fileProvider, { target: '?.bemjson.js' }],
+            [enbBemTechs.levels, { levels: levels }]
+        ]);
+
+        STAGE >= 5 ?
+            nodeConfig.addTechs([
+                [techs.fileProvider, { target: '?.bemjson.js' }],
+                [techs.htmlFromBemjson]
+            ]) :
+            nodeConfig.addTechs([
+                [techs.fileProvider, { target: '?.html' }],
+                [techs.htmlToBemjson]
+            ]);
+
+        nodeConfig.addTechs([
             [enbBemTechs.bemjsonToBemdecl],
             [enbBemTechs.deps],
             [enbBemTechs.files],
@@ -48,7 +62,6 @@ module.exports = function(config) {
 
             // bemhtml
             [techs.bemhtml, { naming: { elem: '__', mod: '--' } }],
-            [techs.htmlFromBemjson],
 
             // client bemhtml
             [enbBemTechs.depsByTechToBemdecl, {
