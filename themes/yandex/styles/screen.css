@@ -620,6 +620,14 @@ body .slide:first-of-type h2
     box-shadow: none;
 }
 
+.language-clike {
+    font-size: 150% !important;
+    text-shadow: none !important;
+    background: #000 !important;
+    color: #fff !important;
+}
+
+
 .slide.big-code pre[class*='language-']
 {
     position: absolute;

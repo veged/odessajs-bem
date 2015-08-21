@@ -20,261 +20,358 @@ layout: default
 	<p class="author">{{ site.author.name }}, <br/> {{ site.author.position }}</p>
 </div>
 
-## Верхний колонтитул
+## Слайды
+{:.with-big-quote}
+
+> [bit.ly/odessajs2015-bem](https://bit.ly/odessajs2015-bem)
+
+будет много ссылок
+{:.note}
+
+## Мастер-класс: строим сервис по БЭМ
 {:.section}
 
-### Название раздела
+### Используем БЭМ
 
-## Заголовок
+## Для тех, кто ничего не знает про БЭМ
+{:.code-with-text}
 
-### Вводный текст (первый уровень текста)
+* [Начало](https://ru.bem.info/method/definitions/)
+* [Вебинар с самых азов](https://ru.bem.info/talks/beminar-css-2015/)
+* [Видео с прошлого выступления на OdessaJS](https://ru.bem.info/talks/bem-odessajs-2014/)
 
-*  Второй уровень текста
-	* Третий уровень текста (буллиты)
+~~~markup
+                      __
+                     /  \        ______________
+                     |  |       /               \
+                     @  @       | It looks      |
+                     || ||      | like you      |
+                     || ||   <--| are nterested |
+                     |\_/|      | in BEM.       |
+                     \___/      \______________ /
 
-	1. Четвертый уровень текста
+~~~
 
-## Заголовок
+## Мастер-класс: строим сервис по БЭМ
+{:.section}
 
-### Вводный текст (первый уровень текста)
-![placeholder](pictures/vertical-placeholder.png){:.right-image}
+### Используем БЭМ<br/>в существующем коде
 
-*  Второй уровень текста
-	* Третий уровень текста (буллиты)
-	* Третий уровень текста (буллиты)
+## Мастер-класс: строим сервис по БЭМ
+{:.section}
 
-	1. Четвертый уровень текста
+### Используем БЭМ<br/>в существующем коде<br/>на примере Material Design Lite
+
+## &nbsp;
+{:.section}
+
+### Material Design Lite
 
 ## &nbsp;
 {:.with-big-quote}
-> Цитата
+> Create a visual language that synthesizes classic principles of good design with the innovation and possibility of technology and science.
 
-Текст
+google.com/design/spec/material-design/introduction.html
 {:.note}
 
-## Пример подсветки кода на JavaScript
+## &nbsp;
+{:.with-big-quote}
+> Гугл делает «убийцу Бутстрапа», внутри БЭМ... БЭМ, Карл!
 
-~~~ javascript
-!function() {
-    var jar,
-        rstoreNames = /[^\w]/g,
-        storageInfo = window.storageInfo || window.webkitStorageInfo,
-        toString = "".toString;
+из внутренней переписки Яндекса
+{:.note}
 
-    jar = this.jar = function( name, storage ) {
-        return new jar.fn.init( name, storage );
-    };
+## Material Design Lite
 
-    jar.storages = [];
-    jar.instances = {};
-    jar.prefixes = {
-        storageInfo: storageInfo
-    };
+### Смотрим внутрь
 
-    jar.prototype = this.jar.fn = {
-        constructor: jar,
+* [Сайт](http://www.getmdl.io)
+* [Код](https://github.com/google/material-design-lite)
+    * [src/](https://github.com/google/material-design-lite/tree/master/src)
+        * блоки ([button](https://github.com/google/material-design-lite/tree/master/src/button), [menu](https://github.com/google/material-design-lite/tree/master/src/menu))
+        * «не блоки» ([_variables.scss](https://github.com/google/material-design-lite/blob/master/src/_variables.scss), [mdlComponentHandler.js](https://github.com/google/material-design-lite/blob/master/src/mdlComponentHandler.js))
+    * порядок сборки
+        * CSS: [src/material-design-lite.scss](https://github.com/google/material-design-lite/blob/master/src/material-design-lite.scss)
+        * JS: [gulpfile.js](https://github.com/google/material-design-lite/blob/master/gulpfile.js#L195)
 
-        version: 0,
+## Material Design Lite
 
-        storages: [],
-        support: {},
+### Смотрим внутрь
 
-        types: [ "xml", "html", "javascript", "js", "css", "text", "json" ],
+* [шаблоны страниц](https://github.com/google/material-design-lite/tree/master/templates)
+    * [HTML](https://github.com/google/material-design-lite/blob/master/templates/text-only/index.html)
+    * [CSS](https://github.com/google/material-design-lite/blob/master/templates/text-only/styles.css)
 
-        init: function( name, storage ) {
 
-            // Name of a object store must contain only alphabetical symbols or low dash
-            this.name = name ? name.replace( rstoreNames, "_" ) : "jar";
-            this.deferreds = {};
+## &nbsp;
+{:.section}
 
-            if ( !storage ) {
-                this.order = jar.order;
-            }
+### BEM Project Stub
 
-            // TODO – add support for aliases
-            return this.setup( storage || this.storages );
-        },
 
-        // Setup for all storages
-        setup: function( storages ) {
-            this.storages = storages = storages.split ? storages.split(" ") : storages;
-
-            var storage,
-                self = this,
-                def = this.register(),
-                rejects = [],
-                defs = [];
-
-            this.stores = jar.instances[ this.name ] || {};
-
-            // Jar store meta-info in lc, if we don't have it – reject call
-            if ( !window.localStorage ) {
-                window.setTimeout(function() {
-                    def.reject();
-                });
-                return this;
-            }
-
-            // Initiate all storages that we can work with
-            for ( var i = 0, l = storages.length; i < l; i++ ) {
-                storage = storages[ i ];
-
-                // This check needed if user explicitly specified storage that
-                // he wants to work with, whereas browser don't implement it
-                if ( jar.isUsed( storage ) ) {
-
-                    // If jar with the same name was created, do not try to re-create store
-                    if ( !this.stores[ storage ] ) {
-
-                        // Initiate storage
-                        defs.push( this[ storage ]( this.name, this ) );
-
-                        // Initiate meta-data for this storage
-                        this.log( storage );
-                    }
-
-                } else {
-                    rejects.push( storage );
-                }
-            }
-
-            if ( !this.order ) {
-                this.order = {};
-
-                for ( i = 0, l = this.types.length; i < l; i++ ) {
-                    this.order[ this.types[ i ] ] = storages;
-                }
-            }
-
-            if ( rejects.length == storages.length ) {
-                window.setTimeout(function() {
-                    def.reject();
-                });
-
-            } else {
-                jar.when.apply( this, defs )
-                    .done(function() {
-                        jar.instances[ this.name ] = this.stores;
-
-                        window.setTimeout(function() {
-                            def.resolve([ self ]);
-                        });
-                    })
-                    .fail(function() {
-                        def.reject();
-                    });
-            }
-            return this;
-        }
-    };
-
-    jar.fn.init.prototype = jar.fn;
-
-    jar.has = function( base, name ) {
-        return !!jar.fn.meta( name, base.replace( rstoreNames, "_" ) );
-    };
-}.call( window );
-~~~
-
-## Пример подсветки кода
+## BEM Project Stub
 {:.code-with-text}
 
-Вводный текст
+### Смотрим внутрь
 
-~~~ javascript
-var jar,
-    rstoreNames = /[^\w]/g,
-    storageInfo = window.storageInfo || window.webkitStorageInfo,
-    toString = "".toString;
+* [Описание](https://ru.bem.info/tutorials/project-stub/)
+* [Код](https://github.com/bem/project-stub)
+    * *.blocks
+    * *.bundles
+    * сборка: [.enb/make.js](https://github.com/bem/project-stub/blob/bem-core/.enb/make.js)
 
-jar = this.jar = function( name, storage ) {
-    return new jar.fn.init( name, storage );
-};
+
+## BEM Project Stub
+{:.code-with-text}
+
+### Смотрим внутрь
+
+* [Описание](https://ru.bem.info/tutorials/project-stub/)
+* [Код](https://github.com/bem/project-stub)
+    * *.blocks
+    * *.bundles
+    * сборка: [.enb/make.js](https://github.com/bem/project-stub/blob/bem-core/.enb/make.js)
+
+~~~clike
+     (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧
 ~~~
 
 ## &nbsp;
-{:.big-code}
+{:.with-big-quote}
+> [Как устроены БЭМ-проекты](https://ru.bem.info/tools/bem/enb-bem-techs/bem-project/)
 
-~~~ javascript
-!function() {
-    var jar,
-        rstoreNames = /[^\w]/g,
-        storageInfo = window.storageInfo || window.webkitStorageInfo,
-        toString = "".toString;
+новая документация
+{:.note}
 
-    jar = this.jar = function( name, storage ) {
-        return new jar.fn.init( name, storage );
-    };
 
-    jar.storages = [];
-    jar.instances = {};
-    jar.prefixes = {
-        storageInfo: storageInfo
-    };
-}.call( window );
+## Material Design Lite
+{:.section}
+
+### Что можно изменить
+
+## Что можно изменить
+
+* Блоки и страницы на файловой системе ⓵
+
+## Что можно изменить
+
+* Блоки и страницы на файловой системе ⓵
+* Сборка только нужного ⓸
+
+## Что можно изменить
+
+* Блоки и страницы на файловой системе ⓵
+* Сборка только нужного ⓸
+    * Вспомогательный код в виде блоков ⓶
+
+## Что можно изменить
+
+* Блоки и страницы на файловой системе ⓵
+* Сборка только нужного ⓸
+    * Вспомогательный код в виде блоков ⓶
+    * Зависимости между блоками ⓷
+
+
+## &nbsp;
+{:.with-big-quote}
+> [Подробно про формат *.deps.js](https://ru.bem.info/technology/deps/about/)
+
+новая документация
+{:.note}
+
+## &nbsp;
+{:.with-big-quote}
+> &nbsp;…но зачем?
+
+история про буханку и троллейбус
+{:.note}
+
+## «…но зачем?»
+{:code-with-text}
+
+* Оптимизация размера
+* Точечные переопределения
+
+~~~clike
+      ᕦ(ò_óˇ)ᕤ
 ~~~
 
-## LaTeX
+## Точечные переопределения
+{:.code-with-text}
 
-Библиотека для латекса довольно тяжелая, а нужна она в редких случаях.
-Поэтому она не включена в репу, ее нужно либо установить через bower либо иметь интернет.
+pages/text-only/blocks/mdl-color-definitions/mdl-color-definitions.scss
 
-When $a \ne 0$, there are two solutions to \(ax^2 + bx + c = 0\) and they are
-$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
+~~~scss
+$color-primary: $palette-pink-500 !default;
+$color-primary-dark: $palette-pink-700 !default;
+~~~
 
-## Заголовок
-{:.images}
+## Material Design Lite
+{:.section}
 
-![](pictures/horizontal-placeholder.png)
-*Текст*
+### Что ещё можно изменить
 
-![](pictures/horizontal-placeholder.png)
-*Текст*
+## Что ещё можно изменить
+{:.code-with-text}
 
-![](pictures/horizontal-placeholder.png)
-*Текст*
+Пристальный взгляд Фрая
 
-## Заголовок
-{:.images .two}
+~~~markup
+<ul class="mdl-menu mdl-menu--bottom-right">
+    <li class="mdl-menu__item">Lorem</li>
+    <li class="mdl-menu__item">Ipsum</li>
+</ul>
+~~~
 
-![](pictures/horizontal-middle-placeholder.png)
-*Текст*
+## Что ещё можно изменить
+{:.code-with-text}
 
-![](pictures/horizontal-middle-placeholder.png)
-*Текст*
+Ничего не напоминает?
 
-## Заголовок
-{:.center}
+~~~markup
+<ul style="background-color: green" class="mdl-menu mdl-menu--bottom-right">
+    <li style="color: red" class="mdl-menu__item">Lorem</li>
+    <li style="color: red" class="mdl-menu__item">Ipsum</li>
+</ul>
+~~~
 
-![](pictures/horizontal-big-placeholder.png){:.tmp}
+~~~clike
+     (ノಠ益ಠ)ノ彡┻━┻
+~~~
 
-## **![](pictures/cover-placeholder.png)**
+## Что ещё можно изменить
+{:.code-with-text}
 
-## ![](pictures/horizontal-cover-placeholder.png)
-{:.cover}
+CSS
 
-## Таблица
+~~~scss
+.mdl-menu {
+    background-color: green;
 
-|  Locavore      | Umami       | Helvetica | Vegan     |
-+----------------|-------------|-----------|-----------+
-| Fingerstache   | Kale        | Chips     | Keytar    |
-| Sriracha       | Gluten-free | Ennui     | Keffiyeh  |
-| Thundercats    | Jean        | Shorts    | Biodiesel |
-| Terry          | Richardson  | Swag      | Blog      |
-+----------------|-------------|-----------|-----------+
+    &__item {
+        color: red;
+    }
+}
+~~~
+
+HTML
+
+~~~
+mdl-menu tag ul
+    __item tag li
+~~~
 
 
-## Таблица с дополнительным полем
+## Что ещё можно изменить
+{:.code-with-text}
 
-{:.with-additional-line}
-|  Locavore      | Umami       | Helvetica | Vegan     |
-+----------------|-------------|-----------|-----------+
-| Fingerstache   | Kale        | Chips     | Keytar    |
-| Sriracha       | Gluten-free | Ennui     | Keffiyeh  |
-| Thundercats    | Jean        | Shorts    | Biodiesel |
-| Terry          | Richardson  | Swag      | Blog      |
-+----------------|-------------|-----------|-----------+
-| Terry          | Richardson  | Swag      | Blog      |
+CSS
+
+~~~scss
+.mdl-menu {
+    background-color: green;
+
+    &__item {
+        color: red;
+    }
+}
+~~~
+
+BEMHTML ⓹
+
+~~~javascript
+block('mdl-menu')(
+    tag()('ul'),
+    elem('item').tag()('li')
+)
+~~~
+
+## Что ещё можно изменить
+{:.code-with-text}
+
+BEMHTML ⓹
+
+~~~javascript
+block('mdl-menu')(
+    tag()('ul'),
+    elem('item').tag()('li')
+)
+~~~
+
+BEMJSON ⓹
+
+~~~javascript
+{
+    block: 'mdl-menu',
+    mods: { 'bottom-right': true },
+    content: [
+        { elem: 'item', content: 'Lorem' },
+        { elem: 'item', content: 'Ipsum' }
+    ]
+}
+~~~
+
+## BEMHTML+BEMJSON
+
+* [Доклад «BEMHTML. NOT yet another шаблонизатор»](https://events.yandex.ru/lib/talks/43/)
+* [BEMHTML: документация](https://ru.bem.info/technology/bemhtml/current/rationale/)
+* [BEMJSON: документация](https://ru.bem.info/technology/bemjson/)
+* [Превращаем HTML в BEMJSON](https://github.com/bem-incubator/html2bemjson) (проект из [БЭМ-инкубатора](https://github.com/bem-incubator/))
+
+~~~clike
+     ☜( ಠ‿↼ )☞
+~~~
+
+
+## Material Design Lite
+{:.section}
+
+### A ещё?
+
+## A ещё?
+
+Автоматическое построение сайта библиотеки блоков ⓺:
+
+* документация: Markdown, JSDoc
+* «живые» примеры
+* тесты
+
+Для примера: [bem-components](https://ru.bem.info/libs/bem-components)
+
+
+## Используем БЭМ
+{:.section}
+
+### в существующем коде
+
+
+
+## Верхний колонтитул
+{:.section}
+
+### Заключение
+
+## Заключение
+
+* можно <s>грабить корованы</s> делать свои библиотеки
+* это не так уж <s>сложно</s> страшно ;-)
+
+## Заключение
+
+* можно <s>грабить корованы</s> делать свои библиотеки
+* это не так уж <s>сложно</s> страшно ;-)
+
+~~~markup
+                      __
+                     /  \        ______________
+                     |  |       /               \
+                     @  @       | It looks      |
+                     || ||      | like you      |
+                     || ||   <--| are nterested |
+                     |\_/|      | in BEM.       |
+                     \___/      \______________ /
+
+~~~
 
 ## **Контакты** {#contacts}
 
@@ -283,10 +380,10 @@ $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
 <p class="position">{{ site.author.position }}</p>
 
     <div class="contacts">
-        <p class="contacts-left contacts-top phone">+7 (000) 000-00-00</p>
-        <p class="contacts-left mail">почта@yandex-team.ru</p>
-        <p class="contacts-right contacts-top twitter">@twitter</p>
+        <p class="contacts-left github">github.com/veged</p>
+        <p class="contacts-left contacts-top mail">veged@yandex-team.ru</p>
+        <p class="contacts-right twitter">@veged</p>
         <!-- <p class="contacts-right contacts-bottom vk">vk</p> -->
-        <p class="contacts-right facebook">facebook</p>
+        <p class="contacts-right contacts-top facebook">veged</p>
     </div>
 </div>
