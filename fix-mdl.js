@@ -100,9 +100,10 @@ forEachMDLFile(['templates', '*', 'index.html'], function(file) {
                     /<link rel="stylesheet" href="\$\$hosted_libs_prefix\$\$\/\$\$version\$\$\/material(\.[^.]+)?\.min\.css">/,
                     '<link rel="stylesheet" href="' + baseName + '.min.css">')
                 .replace('<link rel="stylesheet" href="styles.css">', '') // hack additional styles since they gonna be block definition
+                .replace( // add mdl-page block
+                    '<html ',
+                    '<html class="mdl-page" ' + baseName + '.min.js"></script>')
                 .replace(/mdl-(mega|mini)-footer--/g, 'mdl-$1-footer__')); // hack incorrect usage of modifier instead of element
-
-            bemjson[2].block = 'mdl-page';
 
             // accumulate stats for BEMHTML templates based on all pages
             iterateBEMJSON(bemjson, function(item, ctx) {
